@@ -1,0 +1,197 @@
+[
+  {
+    "label": "allowed-change",
+    "command": [
+      "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\write_scope_eval.py",
+      "--repo",
+      "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-ooewigib\\candidate",
+      "--base",
+      "4fcbcd280cc7d45f815959d039a95e6294d20e5d",
+      "--allow-file",
+      "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-ooewigib\\allowed.json"
+    ],
+    "cwd": "D:\\work\\CodexFDE",
+    "exit_code": 0,
+    "stdout": "{\"case\": \"actual_candidate_scope\", \"requirement\": \"ENG-SCOPE\", \"status\": \"pass\", \"base\": \"4fcbcd280cc7d45f815959d039a95e6294d20e5d\", \"repository\": \"C:\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\l05-scope-ooewigib\\\\candidate\", \"changed\": [\"flowerp/service.py\"], \"unexpected\": [], \"source\": \"git diff base plus non-ignored untracked paths\", \"limits\": \"不覆盖被忽略文件、已撤销写入、仓库外写入或子模块内部差异\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "unexpected-red-1",
+    "command": [
+      "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\write_scope_eval.py",
+      "--repo",
+      "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-ooewigib\\candidate",
+      "--base",
+      "4fcbcd280cc7d45f815959d039a95e6294d20e5d",
+      "--allow-file",
+      "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-ooewigib\\allowed.json"
+    ],
+    "cwd": "D:\\work\\CodexFDE",
+    "exit_code": 1,
+    "stdout": "{\"case\": \"actual_candidate_scope\", \"requirement\": \"ENG-SCOPE\", \"status\": \"fail\", \"base\": \"4fcbcd280cc7d45f815959d039a95e6294d20e5d\", \"repository\": \"C:\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\l05-scope-ooewigib\\\\candidate\", \"changed\": [\"flowerp/service.py\", \"web/l05-unexpected.txt\"], \"unexpected\": [\"web/l05-unexpected.txt\"], \"source\": \"git diff base plus non-ignored untracked paths\", \"limits\": \"不覆盖被忽略文件、已撤销写入、仓库外写入或子模块内部差异\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "unexpected-red-2",
+    "command": [
+      "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\write_scope_eval.py",
+      "--repo",
+      "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-ooewigib\\candidate",
+      "--base",
+      "4fcbcd280cc7d45f815959d039a95e6294d20e5d",
+      "--allow-file",
+      "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-ooewigib\\allowed.json"
+    ],
+    "cwd": "D:\\work\\CodexFDE",
+    "exit_code": 1,
+    "stdout": "{\"case\": \"actual_candidate_scope\", \"requirement\": \"ENG-SCOPE\", \"status\": \"fail\", \"base\": \"4fcbcd280cc7d45f815959d039a95e6294d20e5d\", \"repository\": \"C:\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\l05-scope-ooewigib\\\\candidate\", \"changed\": [\"flowerp/service.py\", \"web/l05-unexpected.txt\"], \"unexpected\": [\"web/l05-unexpected.txt\"], \"source\": \"git diff base plus non-ignored untracked paths\", \"limits\": \"不覆盖被忽略文件、已撤销写入、仓库外写入或子模块内部差异\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "scope-restored",
+    "command": [
+      "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\write_scope_eval.py",
+      "--repo",
+      "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-ooewigib\\candidate",
+      "--base",
+      "4fcbcd280cc7d45f815959d039a95e6294d20e5d",
+      "--allow-file",
+      "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-ooewigib\\allowed.json"
+    ],
+    "cwd": "D:\\work\\CodexFDE",
+    "exit_code": 0,
+    "stdout": "{\"case\": \"actual_candidate_scope\", \"requirement\": \"ENG-SCOPE\", \"status\": \"pass\", \"base\": \"4fcbcd280cc7d45f815959d039a95e6294d20e5d\", \"repository\": \"C:\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\l05-scope-ooewigib\\\\candidate\", \"changed\": [\"flowerp/service.py\"], \"unexpected\": [], \"source\": \"git diff base plus non-ignored untracked paths\", \"limits\": \"不覆盖被忽略文件、已撤销写入、仓库外写入或子模块内部差异\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "rename-outside",
+    "command": [
+      "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\write_scope_eval.py",
+      "--repo",
+      "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-ooewigib\\candidate",
+      "--base",
+      "4fcbcd280cc7d45f815959d039a95e6294d20e5d",
+      "--allow-file",
+      "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-ooewigib\\allowed.json"
+    ],
+    "cwd": "D:\\work\\CodexFDE",
+    "exit_code": 1,
+    "stdout": "{\"case\": \"actual_candidate_scope\", \"requirement\": \"ENG-SCOPE\", \"status\": \"fail\", \"base\": \"4fcbcd280cc7d45f815959d039a95e6294d20e5d\", \"repository\": \"C:\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\l05-scope-ooewigib\\\\candidate\", \"changed\": [\"flowerp/service.py\", \"web/moved-service.py\"], \"unexpected\": [\"web/moved-service.py\"], \"source\": \"git diff base plus non-ignored untracked paths\", \"limits\": \"不覆盖被忽略文件、已撤销写入、仓库外写入或子模块内部差异\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "prepare-ledger-copy",
+    "command": [
+      "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\prepare_receiving_fixture.py",
+      "--output",
+      "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-check-i08oyror\\copy"
+    ],
+    "cwd": "D:\\work\\CodexFDE",
+    "exit_code": 0,
+    "stdout": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-check-i08oyror\\copy\n",
+    "stderr": ""
+  },
+  {
+    "label": "copy-return-only",
+    "command": [
+      "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\receiving_contract_eval.py",
+      "--candidate",
+      "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-check-i08oyror\\copy",
+      "--return-only"
+    ],
+    "cwd": "D:\\work\\CodexFDE",
+    "exit_code": 0,
+    "stdout": "{\"case\": \"return_only\", \"status\": \"pass\", \"source\": \"C:\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\l05-check-i08oyror\\\\copy\\\\flowerp\\\\service.py\", \"observations\": [{\"step\": \"opening\", \"on_hand\": 20, \"event_count\": 1, \"event_keys\": [\"opening\"]}, {\"step\": \"first-A\", \"on_hand\": 28, \"event_count\": 2, \"event_keys\": [\"opening\", \"receipt-A\"]}, {\"step\": \"replay-A\", \"on_hand\": 28, \"event_count\": 3, \"event_keys\": [\"opening\", \"receipt-A\", \"receipt-A:duplicate:10be0d81020b4938a794c5dc85bcb39b\"]}], \"failures\": [], \"scope\": \"sequential requests; no concurrency or same-key different-content guarantee\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "copy-red-1",
+    "command": [
+      "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\receiving_contract_eval.py",
+      "--candidate",
+      "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-check-i08oyror\\copy"
+    ],
+    "cwd": "D:\\work\\CodexFDE",
+    "exit_code": 1,
+    "stdout": "{\"case\": \"receiving_contract\", \"status\": \"fail\", \"source\": \"C:\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\l05-check-i08oyror\\\\copy\\\\flowerp\\\\service.py\", \"observations\": [{\"step\": \"opening\", \"on_hand\": 20, \"event_count\": 1, \"event_keys\": [\"opening\"]}, {\"step\": \"first-A\", \"on_hand\": 28, \"event_count\": 2, \"event_keys\": [\"opening\", \"receipt-A\"]}, {\"step\": \"replay-A\", \"on_hand\": 28, \"event_count\": 3, \"event_keys\": [\"opening\", \"receipt-A\", \"receipt-A:duplicate:f1fa65cc220442bcbbfb48c30b9b0e22\"]}, {\"step\": \"new-B\", \"on_hand\": 36, \"event_count\": 4}, {\"step\": \"invalid-0\", \"rejected\": true, \"state_unchanged\": true}, {\"step\": \"invalid--1\", \"rejected\": true, \"state_unchanged\": true}], \"failures\": [{\"requirement\": \"AC-REPLAY\", \"expected\": {\"on_hand\": 28, \"events\": 2, \"complete_state\": \"unchanged\"}, \"actual\": {\"step\": \"replay-A\", \"on_hand\": 28, \"event_count\": 3, \"event_keys\": [\"opening\", \"receipt-A\", \"receipt-A:duplicate:f1fa65cc220442bcbbfb48c30b9b0e22\"]}}], \"scope\": \"sequential requests; no concurrency or same-key different-content guarantee\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "copy-red-2",
+    "command": [
+      "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\receiving_contract_eval.py",
+      "--candidate",
+      "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-check-i08oyror\\copy"
+    ],
+    "cwd": "D:\\work\\CodexFDE",
+    "exit_code": 1,
+    "stdout": "{\"case\": \"receiving_contract\", \"status\": \"fail\", \"source\": \"C:\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\l05-check-i08oyror\\\\copy\\\\flowerp\\\\service.py\", \"observations\": [{\"step\": \"opening\", \"on_hand\": 20, \"event_count\": 1, \"event_keys\": [\"opening\"]}, {\"step\": \"first-A\", \"on_hand\": 28, \"event_count\": 2, \"event_keys\": [\"opening\", \"receipt-A\"]}, {\"step\": \"replay-A\", \"on_hand\": 28, \"event_count\": 3, \"event_keys\": [\"opening\", \"receipt-A\", \"receipt-A:duplicate:3894adfc7bac429298367e7ad72cfc1e\"]}, {\"step\": \"new-B\", \"on_hand\": 36, \"event_count\": 4}, {\"step\": \"invalid-0\", \"rejected\": true, \"state_unchanged\": true}, {\"step\": \"invalid--1\", \"rejected\": true, \"state_unchanged\": true}], \"failures\": [{\"requirement\": \"AC-REPLAY\", \"expected\": {\"on_hand\": 28, \"events\": 2, \"complete_state\": \"unchanged\"}, \"actual\": {\"step\": \"replay-A\", \"on_hand\": 28, \"event_count\": 3, \"event_keys\": [\"opening\", \"receipt-A\", \"receipt-A:duplicate:3894adfc7bac429298367e7ad72cfc1e\"]}}], \"scope\": \"sequential requests; no concurrency or same-key different-content guarantee\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "healthy-reference",
+    "command": [
+      "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\receiving_contract_eval.py",
+      "--candidate",
+      "D:\\work\\CodexFDE"
+    ],
+    "cwd": "D:\\work\\CodexFDE",
+    "exit_code": 0,
+    "stdout": "{\"case\": \"receiving_contract\", \"status\": \"pass\", \"source\": \"D:\\\\work\\\\CodexFDE\\\\flowerp\\\\service.py\", \"observations\": [{\"step\": \"opening\", \"on_hand\": 20, \"event_count\": 1, \"event_keys\": [\"opening\"]}, {\"step\": \"first-A\", \"on_hand\": 28, \"event_count\": 2, \"event_keys\": [\"opening\", \"receipt-A\"]}, {\"step\": \"replay-A\", \"on_hand\": 28, \"event_count\": 2, \"event_keys\": [\"opening\", \"receipt-A\"]}, {\"step\": \"new-B\", \"on_hand\": 36, \"event_count\": 3}, {\"step\": \"invalid-0\", \"rejected\": true, \"state_unchanged\": true}, {\"step\": \"invalid--1\", \"rejected\": true, \"state_unchanged\": true}], \"failures\": [], \"scope\": \"sequential requests; no concurrency or same-key different-content guarantee\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "changed-values",
+    "command": [
+      "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\receiving_contract_eval.py",
+      "--candidate",
+      "D:\\work\\CodexFDE",
+      "--opening",
+      "11",
+      "--quantity",
+      "3"
+    ],
+    "cwd": "D:\\work\\CodexFDE",
+    "exit_code": 0,
+    "stdout": "{\"case\": \"receiving_contract\", \"status\": \"pass\", \"source\": \"D:\\\\work\\\\CodexFDE\\\\flowerp\\\\service.py\", \"observations\": [{\"step\": \"opening\", \"on_hand\": 11, \"event_count\": 1, \"event_keys\": [\"opening\"]}, {\"step\": \"first-A\", \"on_hand\": 14, \"event_count\": 2, \"event_keys\": [\"opening\", \"receipt-A\"]}, {\"step\": \"replay-A\", \"on_hand\": 14, \"event_count\": 2, \"event_keys\": [\"opening\", \"receipt-A\"]}, {\"step\": \"new-B\", \"on_hand\": 17, \"event_count\": 3}, {\"step\": \"invalid-0\", \"rejected\": true, \"state_unchanged\": true}, {\"step\": \"invalid--1\", \"rejected\": true, \"state_unchanged\": true}], \"failures\": [], \"scope\": \"sequential requests; no concurrency or same-key different-content guarantee\"}\n",
+    "stderr": ""
+  }
+]

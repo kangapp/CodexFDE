@@ -1,0 +1,17 @@
+{
+  "id": "protocol-timeout",
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\work\\CodexFDE\\docs\\courses\\L07\\examples\\hook_protocol_lab.py",
+    "timeout"
+  ],
+  "cwd": "D:\\work\\CodexFDE",
+  "input": null,
+  "exit_code": 0,
+  "stdout": "{\n  \"mode\": \"timeout\",\n  \"evidence_kind\": \"adapter_with_test_double\",\n  \"handler\": \"D:\\\\work\\\\CodexFDE\\\\.codex\\\\hooks\\\\quality_gate.py\",\n  \"input\": \"{\\\"hook_event_name\\\": \\\"Stop\\\", \\\"cwd\\\": \\\"D:\\\\\\\\work\\\\\\\\CodexFDE\\\", \\\"stop_hook_active\\\": false}\",\n  \"harness_call_count\": 1,\n  \"subprocess_timeout_configured\": false,\n  \"handler_return\": null,\n  \"exception\": \"TimeoutExpired\",\n  \"stdout\": \"\",\n  \"stderr\": \"\",\n  \"response\": null,\n  \"real_codex_event\": false\n}\n",
+  "stderr": "",
+  "real_codex_event": false,
+  "evidence_kind": "real_process_record"
+}

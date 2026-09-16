@@ -1,0 +1,350 @@
+{
+  "run": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379",
+  "pre": {
+    "schema_version": "1.0",
+    "suite": "blocking",
+    "requested_cases": [
+      "stock_never_negative",
+      "l06_stock_consistency",
+      "l06_harness_contract",
+      "l05_personal_receiving",
+      "l05_personal_scope"
+    ],
+    "generated_at": "2026-09-09T08:26:03.061265+00:00",
+    "summary": {
+      "total": 5,
+      "passed": 2,
+      "blocking_failed": 3,
+      "observing_failed": 0,
+      "decision": "block"
+    },
+    "results": [
+      {
+        "name": "stock_never_negative",
+        "level": "blocking",
+        "passed": false,
+        "duration_ms": 59,
+        "evidence": "IntegrityError: CHECK constraint failed: reserved >= 0 AND reserved <= on_hand"
+      },
+      {
+        "name": "l06_stock_consistency",
+        "level": "blocking",
+        "passed": false,
+        "duration_ms": 66,
+        "evidence": "AssertionError: AC-AVAILABLE: expected=[8, 3, 5], actual={'query': [8, 3, 5], 'csv': [8, 3, 8]}"
+      },
+      {
+        "name": "l05_personal_receiving",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 239,
+        "evidence": "test_first (tests.test_l05_receiving.ReceivingContract.test_first) ... ok\ntest_invalid_unchanged (tests.test_l05_receiving.ReceivingContract.test_invalid_unchanged) ... ok\ntest_new (tests.test_l05_receiving.ReceivingContract.test_new) ... ok\ntest_replay (tests.test_l05_receiving.ReceivingContract.test_replay) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.237s\n\nOK\n"
+      },
+      {
+        "name": "l05_personal_scope",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 3,
+        "evidence": "test_allowed (tests.test_l05_scope.ScopeContract.test_allowed) ... ok\ntest_forbidden (tests.test_l05_scope.ScopeContract.test_forbidden) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+      },
+      {
+        "name": "l06_harness_contract",
+        "level": "blocking",
+        "passed": false,
+        "duration_ms": 7,
+        "evidence": "AssertionError: test_blocking_is_not_majority_vote (tests.test_l06_runner.RunnerContract.test_blocking_is_not_majority_vote) ... FAIL\ntest_consumer_rejects_summary_or_exit_contradiction (tests.test_l06_runner.RunnerContract.test_consumer_rejects_summary_or_exit_contradiction) ... ok\ntest_exception_keeps_reason_and_continues (tests.test_l06_runner.RunnerContract.test_exception_keeps_reason_and_continues) ... FAIL\ntest_invalid_selection (tests.test_l06_runner.RunnerContract.test_invalid_selection) ... ok\ntest_observing_exception_is_not_silently_promoted (tests.test_l06_runner.RunnerContract.test_observing_exception_is_not_silently_promoted) ... ok\ntest_observing_keeps_warning (tests.test_l06_runner.RunnerContract.test_observing_keeps_warning) ... ok\ntest_pass_and_report (tests.test_l06_runner.RunnerContract.test_pass_and_report) ... ok\ntest_subset_is_explicit (tests.test_l06_runner.RunnerContract.test_subset_is_explicit) ... ok\ntest_write_failure_cannot_reuse_old_report (tests.test_l06_runner.RunnerContract.test_write_failure_cannot_reuse_old_report) ... ok\n\n======================================================================\nFAIL: test_blocking_is_not_majority_vote (tests.test_l06_runner.RunnerContract.test_blocking_is_not_majority_vote)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\verification-runtime\\course-worktrees\\TASK-PREP-L06-20260909-162444-d726d379\\tests\\test_l06_runner.py\", line 30, in test_blocking_is_not_majority_vote\n    self.assertEqual(code,1,'HARNESS-BLOCK: one blocking failure must stop delivery')\nAssertionError: 0 != 1 : HARNESS-BLOCK: one blocking failure must stop delivery\n\n======================================================================\nFAIL: test_exception_keeps_reason_and_continues (tests.test_l06_runner.RunnerContract.test_exception_keeps_reason_and_continues)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\verification-runtime\\course-worktrees\\TASK-PREP-L06-20260909-162444-d726d379\\tests\\test_l06_runner.py\", line 43, in test_exception_keeps_reason_and_continues\n    self.assertEqual(called,['b']);self.assertEqual(code,1,'HARNESS-ERROR')\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 0 != 1 : HARNESS-ERROR\n\n----------------------------------------------------------------------\nRan 9 tests in 0.004s\n\nFAILED (failures=2)\n"
+      }
+    ]
+  },
+  "pre2": {
+    "schema_version": "1.0",
+    "suite": "blocking",
+    "requested_cases": [
+      "stock_never_negative",
+      "l06_stock_consistency",
+      "l06_harness_contract",
+      "l05_personal_receiving",
+      "l05_personal_scope"
+    ],
+    "generated_at": "2026-09-09T08:26:03.733497+00:00",
+    "summary": {
+      "total": 5,
+      "passed": 2,
+      "blocking_failed": 3,
+      "observing_failed": 0,
+      "decision": "block"
+    },
+    "results": [
+      {
+        "name": "stock_never_negative",
+        "level": "blocking",
+        "passed": false,
+        "duration_ms": 57,
+        "evidence": "IntegrityError: CHECK constraint failed: reserved >= 0 AND reserved <= on_hand"
+      },
+      {
+        "name": "l06_stock_consistency",
+        "level": "blocking",
+        "passed": false,
+        "duration_ms": 63,
+        "evidence": "AssertionError: AC-AVAILABLE: expected=[8, 3, 5], actual={'query': [8, 3, 5], 'csv': [8, 3, 8]}"
+      },
+      {
+        "name": "l05_personal_receiving",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 249,
+        "evidence": "test_first (tests.test_l05_receiving.ReceivingContract.test_first) ... ok\ntest_invalid_unchanged (tests.test_l05_receiving.ReceivingContract.test_invalid_unchanged) ... ok\ntest_new (tests.test_l05_receiving.ReceivingContract.test_new) ... ok\ntest_replay (tests.test_l05_receiving.ReceivingContract.test_replay) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.246s\n\nOK\n"
+      },
+      {
+        "name": "l05_personal_scope",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 2,
+        "evidence": "test_allowed (tests.test_l05_scope.ScopeContract.test_allowed) ... ok\ntest_forbidden (tests.test_l05_scope.ScopeContract.test_forbidden) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+      },
+      {
+        "name": "l06_harness_contract",
+        "level": "blocking",
+        "passed": false,
+        "duration_ms": 7,
+        "evidence": "AssertionError: test_blocking_is_not_majority_vote (tests.test_l06_runner.RunnerContract.test_blocking_is_not_majority_vote) ... FAIL\ntest_consumer_rejects_summary_or_exit_contradiction (tests.test_l06_runner.RunnerContract.test_consumer_rejects_summary_or_exit_contradiction) ... ok\ntest_exception_keeps_reason_and_continues (tests.test_l06_runner.RunnerContract.test_exception_keeps_reason_and_continues) ... FAIL\ntest_invalid_selection (tests.test_l06_runner.RunnerContract.test_invalid_selection) ... ok\ntest_observing_exception_is_not_silently_promoted (tests.test_l06_runner.RunnerContract.test_observing_exception_is_not_silently_promoted) ... ok\ntest_observing_keeps_warning (tests.test_l06_runner.RunnerContract.test_observing_keeps_warning) ... ok\ntest_pass_and_report (tests.test_l06_runner.RunnerContract.test_pass_and_report) ... ok\ntest_subset_is_explicit (tests.test_l06_runner.RunnerContract.test_subset_is_explicit) ... ok\ntest_write_failure_cannot_reuse_old_report (tests.test_l06_runner.RunnerContract.test_write_failure_cannot_reuse_old_report) ... ok\n\n======================================================================\nFAIL: test_blocking_is_not_majority_vote (tests.test_l06_runner.RunnerContract.test_blocking_is_not_majority_vote)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\verification-runtime\\course-worktrees\\TASK-PREP-L06-20260909-162444-d726d379\\tests\\test_l06_runner.py\", line 30, in test_blocking_is_not_majority_vote\n    self.assertEqual(code,1,'HARNESS-BLOCK: one blocking failure must stop delivery')\nAssertionError: 0 != 1 : HARNESS-BLOCK: one blocking failure must stop delivery\n\n======================================================================\nFAIL: test_exception_keeps_reason_and_continues (tests.test_l06_runner.RunnerContract.test_exception_keeps_reason_and_continues)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\verification-runtime\\course-worktrees\\TASK-PREP-L06-20260909-162444-d726d379\\tests\\test_l06_runner.py\", line 43, in test_exception_keeps_reason_and_continues\n    self.assertEqual(called,['b']);self.assertEqual(code,1,'HARNESS-ERROR')\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 0 != 1 : HARNESS-ERROR\n\n----------------------------------------------------------------------\nRan 9 tests in 0.004s\n\nFAILED (failures=2)\n"
+      }
+    ]
+  },
+  "post": {
+    "schema_version": "1.0",
+    "suite": "blocking",
+    "requested_cases": [
+      "stock_never_negative",
+      "l06_stock_consistency",
+      "l06_harness_contract",
+      "l05_personal_receiving",
+      "l05_personal_scope"
+    ],
+    "generated_at": "2026-09-09T08:33:41.041228+00:00",
+    "summary": {
+      "total": 5,
+      "passed": 5,
+      "blocking_failed": 0,
+      "observing_failed": 0,
+      "decision": "pass"
+    },
+    "results": [
+      {
+        "name": "stock_never_negative",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 61,
+        "evidence": "缺货请求被拒绝，库存未发生部分写入"
+      },
+      {
+        "name": "l06_stock_consistency",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 94,
+        "evidence": "AC-AVAILABLE {'query': [8, 3, 5], 'csv': [8, 3, 5]}; reject 6; stock and inventory events unchanged"
+      },
+      {
+        "name": "l05_personal_receiving",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 248,
+        "evidence": "test_first (tests.test_l05_receiving.ReceivingContract.test_first) ... ok\ntest_invalid_unchanged (tests.test_l05_receiving.ReceivingContract.test_invalid_unchanged) ... ok\ntest_new (tests.test_l05_receiving.ReceivingContract.test_new) ... ok\ntest_replay (tests.test_l05_receiving.ReceivingContract.test_replay) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.246s\n\nOK\n"
+      },
+      {
+        "name": "l05_personal_scope",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 3,
+        "evidence": "test_allowed (tests.test_l05_scope.ScopeContract.test_allowed) ... ok\ntest_forbidden (tests.test_l05_scope.ScopeContract.test_forbidden) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+      },
+      {
+        "name": "l06_harness_contract",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 7,
+        "evidence": "test_blocking_is_not_majority_vote (tests.test_l06_runner.RunnerContract.test_blocking_is_not_majority_vote) ... ok\ntest_consumer_rejects_summary_or_exit_contradiction (tests.test_l06_runner.RunnerContract.test_consumer_rejects_summary_or_exit_contradiction) ... ok\ntest_exception_keeps_reason_and_continues (tests.test_l06_runner.RunnerContract.test_exception_keeps_reason_and_continues) ... ok\ntest_invalid_selection (tests.test_l06_runner.RunnerContract.test_invalid_selection) ... ok\ntest_observing_exception_is_not_silently_promoted (tests.test_l06_runner.RunnerContract.test_observing_exception_is_not_silently_promoted) ... ok\ntest_observing_keeps_warning (tests.test_l06_runner.RunnerContract.test_observing_keeps_warning) ... ok\ntest_pass_and_report (tests.test_l06_runner.RunnerContract.test_pass_and_report) ... ok\ntest_subset_is_explicit (tests.test_l06_runner.RunnerContract.test_subset_is_explicit) ... ok\ntest_write_failure_cannot_reuse_old_report (tests.test_l06_runner.RunnerContract.test_write_failure_cannot_reuse_old_report) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.004s\n\nOK\n"
+      }
+    ],
+    "runner": {
+      "workspace": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\verification-runtime\\course-worktrees\\TASK-2398C4CDF7",
+      "process_returncode": 0,
+      "label": "post",
+      "attempt_id": "9625317a654844099f2fcc6cd279c0f8",
+      "report_path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\verification-runtime\\reports\\eval-9625317a654844099f2fcc6cd279c0f8\\report.json",
+      "receipt_path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\verification-runtime\\reports\\eval-9625317a654844099f2fcc6cd279c0f8\\process.json",
+      "validated": true
+    },
+    "report_path": "reports/TASK-2398C4CDF7-harness-blocking.json"
+  },
+  "false": {
+    "schema_version": "1.0",
+    "suite": "all",
+    "requested_cases": [
+      "l06_stock_consistency",
+      "l05_personal_receiving",
+      "l05_personal_scope"
+    ],
+    "generated_at": "2026-09-09T08:27:06.381041+00:00",
+    "results": [
+      {
+        "name": "l06_stock_consistency",
+        "level": "blocking",
+        "passed": false,
+        "duration_ms": 65,
+        "evidence": "AC-AVAILABLE: expected=[8, 3, 5], actual={'query': [8, 3, 5], 'csv': [8, 3, 8]}",
+        "error": {
+          "type": "AssertionError",
+          "message": "AC-AVAILABLE: expected=[8, 3, 5], actual={'query': [8, 3, 5], 'csv': [8, 3, 8]}"
+        }
+      },
+      {
+        "name": "l05_personal_receiving",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 246,
+        "evidence": "test_first (tests.test_l05_receiving.ReceivingContract.test_first) ... ok\ntest_invalid_unchanged (tests.test_l05_receiving.ReceivingContract.test_invalid_unchanged) ... ok\ntest_new (tests.test_l05_receiving.ReceivingContract.test_new) ... ok\ntest_replay (tests.test_l05_receiving.ReceivingContract.test_replay) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.244s\n\nOK\n",
+        "error": null
+      },
+      {
+        "name": "l05_personal_scope",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 3,
+        "evidence": "test_allowed (tests.test_l05_scope.ScopeContract.test_allowed) ... ok\ntest_forbidden (tests.test_l05_scope.ScopeContract.test_forbidden) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+        "error": null
+      }
+    ],
+    "summary": {
+      "total": 3,
+      "passed": 2,
+      "blocking_failed": 0,
+      "observing_failed": 0,
+      "decision": "pass"
+    }
+  },
+  "green": {
+    "schema_version": "1.0",
+    "suite": "all",
+    "requested_cases": [
+      "l06_stock_consistency",
+      "l05_personal_receiving",
+      "l05_personal_scope"
+    ],
+    "generated_at": "2026-09-09T08:38:24.336951+00:00",
+    "results": [
+      {
+        "name": "l06_stock_consistency",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 95,
+        "evidence": "AC-AVAILABLE {'query': [8, 3, 5], 'csv': [8, 3, 5]}; reject 6; stock and inventory events unchanged",
+        "error": null
+      },
+      {
+        "name": "l05_personal_receiving",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 266,
+        "evidence": "test_first (tests.test_l05_receiving.ReceivingContract.test_first) ... ok\ntest_invalid_unchanged (tests.test_l05_receiving.ReceivingContract.test_invalid_unchanged) ... ok\ntest_new (tests.test_l05_receiving.ReceivingContract.test_new) ... ok\ntest_replay (tests.test_l05_receiving.ReceivingContract.test_replay) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.263s\n\nOK\n",
+        "error": null
+      },
+      {
+        "name": "l05_personal_scope",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 4,
+        "evidence": "test_allowed (tests.test_l05_scope.ScopeContract.test_allowed) ... ok\ntest_forbidden (tests.test_l05_scope.ScopeContract.test_forbidden) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+        "error": null
+      }
+    ],
+    "summary": {
+      "total": 3,
+      "passed": 3,
+      "blocking_failed": 0,
+      "observing_failed": 0,
+      "decision": "pass"
+    }
+  },
+  "sources": [
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\pre-01.json",
+      "sha256": "e2c80e2d5185dca6e1aa6a35db75e70575fdbce306390b2e12be5a34850717cb"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\pre-02.json",
+      "sha256": "867d0cab15c3b42bc6b6e807f86ffe3ae094296e97a9ad1d89c0e860b24c97c6"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\false-green.json",
+      "sha256": "ae3abaf25859c4f161369c4a2fc3a68f379a5c1fb697746f86891c877942e2c9"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\submission.json",
+      "sha256": "50a4d0985549787c55133df984d4c986c5e2c0db42ac75f26b0a634b149893d7"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\verification-runtime\\reports\\TASK-2398C4CDF7-harness-blocking.json",
+      "sha256": "b1141e7b11f3db97d7f4793950fefac1a96d892c3867eac6c483b1989168f785"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\evidence\\20260909T082602-4e9edcdb.json",
+      "sha256": "07059ed2c5a7f0cd8d1cd19f4f885adc6d780e2001125ed7ab73ac734ab103e1"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\evidence\\20260909T082602-bf7a53ea.json",
+      "sha256": "61f011eea944d9336c0aeae28014cb45c131d0b73405c117729f1448b4e3be61"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\evidence\\20260909T083823-2c6fc275.json",
+      "sha256": "454f669b120fb1e2b9f4898876d36094f6b1de4eef4b87fc72b7e47744b0cf02"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\evidence\\20260909T082706-9e8f4c85.json",
+      "sha256": "744c6b8ea251dd9fb8e357fb5b5fedb3646cb1e24c8d84a07b18a2e3e3a89967"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\evidence\\20260909T083828-21e0ccaf.json",
+      "sha256": "4f398024f3387ca55248bea514d2d01c642d41df3f613da88d1da2c563bdbad4"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\evidence\\20260909T083825-6da63773.json",
+      "sha256": "02c5f1f15400cbe399ae9374bab19ed7490144eada8b0d3f2abc58a4046456ba"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\evidence\\20260909T083826-12a58d94.json",
+      "sha256": "3f4ec5fb485da632734339bdd0c33e7f25bbf22eeef9b8fdabc049e497498940"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\evidence\\20260909T083826-dac2c3bf.json",
+      "sha256": "0e0de8ae805adefcfd7b81ddce4c0013dc6ac2c40c108b59f2dd8780e852a7fc"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\evidence\\20260909T083827-87e14140.json",
+      "sha256": "41be5b9123f9ff4447fea31979a7e91bc80fd65d61fb9881da538491d6877b4d"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\evidence\\20260909T083827-b747ae62.json",
+      "sha256": "850beb4a80c4e61fd79c2eb598731ebeceba5c2f08e7d2cdcf132a081e3164b5"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\evidence\\20260909T083827-d41afb7f.json",
+      "sha256": "e193974f50a7a1dba434f6623f5e61e4d7d9ba987eab1c9842277d2c7a2edff6"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\evidence\\20260909T083828-8f9b84a1.json",
+      "sha256": "1d2860b8886ad03f29e26ad6bb66482994acd21dfca1d2e396e792002f21e690"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\evidence\\20260909T083824-986f0ebc.json",
+      "sha256": "5ea9844eb4beb9ba8d78a04875ddcd90641000398e0dfef1153455c083fe87a3"
+    },
+    {
+      "path": "D:\\work\\CodexFDE\\.runtime\\l06-practice\\20260909-162444-d726d379\\evidence\\20260909T084759-331eeccd.json",
+      "sha256": "93f2723dea475ba6c04f600ad2c9525d0d8466b45aa4fc132ddccb72af4fa9f8"
+    }
+  ],
+  "task_id": "TASK-2398C4CDF7",
+  "status": "review"
+}

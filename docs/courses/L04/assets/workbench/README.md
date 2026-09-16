@@ -1,0 +1,17 @@
+# L04 工作台原生界面截图
+
+采集日期：2026-09-07；实际地址：http://127.0.0.1:8001/ 。使用当前仓库的 serve-workbench 服务与真实浏览器截图；未重绘或替换页面数据。
+
+本次使用独立运行目录 `.course-authoring/L04/execution-20260907/runtime`，复用任务 `TASK-D41D18C759`。该任务仅做自动参考复验，29 项阻断检查通过，停在 review；没有实际同伴独立验收，没有启动 B，也没有人工接受。
+
+首页事项为 0，任务未关联事项；新事项表单仅打开查看，未保存。现有界面包含后续课程能力，本手册只用它展示 V0 对应的任务、合同、执行模式、检查和人审。截图不证明学生亲手完成 V0，也不证明首页事项与 A 已贯通。
+
+| 图片 | 页面操作 | SHA-256 |
+|---|---|---|
+| [01-home.png](01-home.png) | 打开根地址首页 | `573150be8dbb634c3d053943e74c02c3d5f76ba0cae686a5731714d7c17efd98` |
+| [02-initiative-form.png](02-initiative-form.png) | 事项与决策 → ＋ 记录新事项 | `74f4136b71f785062ac1b17801b1cd68001156c82fa1d4e07f3bd5c644f675df` |
+| [04-task-detail.png](04-task-detail.png) | 交付记录 → 实际 A 任务卡片，等待详情加载 | `477bdb88c5dccd6f924e5da1068d61639f1815bc5b35d39f12cf440fe5f8188f` |
+| [05-evidence.png](05-evidence.png) | A 详情 → 核验证据 | `3b8caf8d2cd276503625529560e9da3158a1ae5d539c3a95bb89225f9ef51760` |
+| [06-eval-results.png](06-eval-results.png) | 核验证据 → 查看逐项检查结果 | `a269792549c91be279e5369e37a2e0a72e837c9580b31f22ffc4b220b1b13da7` |
+
+[对应的命令复验原始记录](../execution/README.md) · [实践手册](../../实践操作手册.md)

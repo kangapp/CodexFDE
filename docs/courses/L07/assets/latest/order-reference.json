@@ -1,0 +1,16 @@
+{
+  "id": "order-reference",
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\work\\CodexFDE\\docs\\courses\\L07\\examples\\order_state_lab.py"
+  ],
+  "cwd": "D:\\work\\CodexFDE",
+  "input": null,
+  "exit_code": 0,
+  "stdout": "{\n  \"evidence_kind\": \"reference_service_temp_db\",\n  \"total_cents\": 12000,\n  \"status\": \"draft\",\n  \"stock_unchanged\": true,\n  \"failed_requests\": [\n    {\n      \"order\": \"L07-INVALID\",\n      \"rejected_as\": \"ValueError\",\n      \"partial_rows\": 0\n    },\n    {\n      \"order\": \"L07-MISSING\",\n      \"rejected_as\": \"NotFound\",\n      \"partial_rows\": 0\n    }\n  ],\n  \"real_codex_event\": false\n}\n",
+  "stderr": "",
+  "real_codex_event": false,
+  "evidence_kind": "real_process_record"
+}

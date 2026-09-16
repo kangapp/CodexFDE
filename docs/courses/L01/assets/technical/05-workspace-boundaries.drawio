@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="drawio" version="26.0.0">
+  <diagram name="05-workspace-boundaries">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="e0" parent="1" source="a" target="b" edge="1" value="准备" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#596C7C;fontSize=22;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1" parent="1" source="b" target="c" edge="1" value="保存" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#596C7C;fontSize=22;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a" parent="1" vertex="1" value="参考仓库&#10;课程资料&#10;源码骨架&#10;采集与导入工具&#10;项目 Python 环境" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Microsoft YaHei;fontSize=24;fillColor=#F3F5F7;strokeColor=#697684;fontColor=#182330;">
+          <mxGeometry x="35" y="90" width="290" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="b" parent="1" vertex="1" value="隔离练习区&#10;本人 Spec&#10;本人测试与实现&#10;当前模块从此加载&#10;Codex 与终端共用" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Microsoft YaHei;fontSize=24;fillColor=#EAF2FA;strokeColor=#426A92;fontColor=#182330;">
+          <mxGeometry x="415" y="90" width="290" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="c" parent="1" vertex="1" value="练习区内的两类材料&#10;个人记录目录&#10;判断与命令输出&#10;独立运行目录&#10;workbench.db" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Microsoft YaHei;fontSize=24;fillColor=#ECF5EF;strokeColor=#46745C;fontColor=#182330;">
+          <mxGeometry x="795" y="90" width="290" height="290" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

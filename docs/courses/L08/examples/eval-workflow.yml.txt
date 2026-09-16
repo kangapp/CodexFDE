@@ -1,0 +1,42 @@
+# Teaching candidate: review and adapt in your own repository before enabling.
+# This file is not in .github/workflows and is not an active workflow.
+name: L08 Candidate Eval
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  blocking-evals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CI_REPORT_DIR: _ci_reports/${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare project environment
+        id: environment
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install -e .
+      - name: Record checked-out version
+        run: git rev-parse HEAD
+      - name: Unit tests
+        run: .venv/bin/python -X utf8 -m unittest discover -s tests -v
+      - name: Unified blocking gate
+        if: ${{ !cancelled() && steps.environment.outcome == 'success' }}
+        run: .venv/bin/python -X utf8 -m eval.harness --suite blocking --report-path "$CI_REPORT_DIR/harness-blocking.json"
+      - name: Bind report identity
+        if: ${{ !cancelled() && steps.environment.outcome == 'success' }}
+        run: .venv/bin/python -X utf8 -m workbench.ci_evidence --report "$CI_REPORT_DIR/harness-blocking.json" --output "$CI_REPORT_DIR/ci-evidence.json"
+      - name: Upload this attempt's evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: l08-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ env.CI_REPORT_DIR }}/harness-blocking.json
+            ${{ env.CI_REPORT_DIR }}/ci-evidence.json
+          if-no-files-found: error

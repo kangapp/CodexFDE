@@ -1,0 +1,58 @@
+{
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\work\\CodexFDE\\docs\\courses\\L08\\examples\\ci_signal_lab.py",
+    "true-green"
+  ],
+  "cwd": "D:\\work\\CodexFDE",
+  "exit_code": 0,
+  "stdout": "{\n  \"mode\": \"true-green\",\n  \"evidence_kind\": \"local_harness_with_teaching_case\",\n  \"report\": {\n    \"schema_version\": \"1.0\",\n    \"suite\": \"blocking\",\n    \"requested_cases\": [\n      \"l08_teaching_signal\"\n    ],\n    \"generated_at\": \"2026-09-08T16:13:00.889921+00:00\",\n    \"summary\": {\n      \"total\": 1,\n      \"passed\": 1,\n      \"blocking_failed\": 0,\n      \"observing_failed\": 0,\n      \"decision\": \"pass\"\n    },\n    \"results\": [\n      {\n        \"name\": \"l08_teaching_signal\",\n        \"level\": \"blocking\",\n        \"passed\": true,\n        \"duration_ms\": 0,\n        \"evidence\": \"L08 teaching control passed; not a product repair\",\n        \"error\": null\n      }\n    ]\n  },\n  \"envelope\": {\n    \"commit_sha\": \"SIMULATED-L08\",\n    \"run_id\": \"SIMULATED-true-green\",\n    \"workflow\": \"\",\n    \"runner_os\": \"\",\n    \"python\": \"3.11.15\",\n    \"suite\": \"blocking\",\n    \"report_sha256\": \"9c90998b9e8c768c2e895469618f53329f0f86df49f433ea2cbada7467b7572c\",\n    \"report_decision\": \"pass\"\n  },\n  \"harness_stdout\": \"[PASS ] l08_teaching_signal                      0 ms  L08 teaching control passed; not a product repair\\n{\\\"total\\\": 1, \\\"passed\\\": 1, \\\"blocking_failed\\\": 0, \\\"observing_failed\\\": 0, \\\"decision\\\": \\\"pass\\\"}\\n\",\n  \"harness_exit\": 0,\n  \"adapter_exit\": 0,\n  \"real_remote_run\": false\n}\n",
+  "stderr": "",
+  "source_sha256": "b1a06ecb41625efeba8ebaa525c7676f88edd8ebe423380753f2aa90d37c7574",
+  "result": {
+    "mode": "true-green",
+    "evidence_kind": "local_harness_with_teaching_case",
+    "report": {
+      "schema_version": "1.0",
+      "suite": "blocking",
+      "requested_cases": [
+        "l08_teaching_signal"
+      ],
+      "generated_at": "2026-09-08T16:13:00.889921+00:00",
+      "summary": {
+        "total": 1,
+        "passed": 1,
+        "blocking_failed": 0,
+        "observing_failed": 0,
+        "decision": "pass"
+      },
+      "results": [
+        {
+          "name": "l08_teaching_signal",
+          "level": "blocking",
+          "passed": true,
+          "duration_ms": 0,
+          "evidence": "L08 teaching control passed; not a product repair",
+          "error": null
+        }
+      ]
+    },
+    "envelope": {
+      "commit_sha": "SIMULATED-L08",
+      "run_id": "SIMULATED-true-green",
+      "workflow": "",
+      "runner_os": "",
+      "python": "3.11.15",
+      "suite": "blocking",
+      "report_sha256": "9c90998b9e8c768c2e895469618f53329f0f86df49f433ea2cbada7467b7572c",
+      "report_decision": "pass"
+    },
+    "harness_stdout": "[PASS ] l08_teaching_signal                      0 ms  L08 teaching control passed; not a product repair\n{\"total\": 1, \"passed\": 1, \"blocking_failed\": 0, \"observing_failed\": 0, \"decision\": \"pass\"}\n",
+    "harness_exit": 0,
+    "adapter_exit": 0,
+    "real_remote_run": false
+  },
+  "real_remote_run": false
+}

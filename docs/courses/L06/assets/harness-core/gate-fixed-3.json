@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "suite": "all",
+  "requested_cases": [
+    "valid_batch",
+    "invalid_batch_no_write",
+    "preview_no_product_write",
+    "l05_receiving_reference",
+    "help_image"
+  ],
+  "generated_at": "2026-09-09T09:27:38.669496+00:00",
+  "results": [
+    {
+      "name": "valid_batch",
+      "level": "blocking",
+      "passed": true,
+      "duration_ms": 110,
+      "evidence": "rows=3; added=3",
+      "error": null
+    },
+    {
+      "name": "invalid_batch_no_write",
+      "level": "blocking",
+      "passed": false,
+      "duration_ms": 86,
+      "evidence": "AC-BATCH: expected rejected=True, added=0; rows=3; rejected=False; added=2",
+      "error": {
+        "type": "AssertionError",
+        "message": "AC-BATCH: expected rejected=True, added=0; rows=3; rejected=False; added=2"
+      }
+    },
+    {
+      "name": "preview_no_product_write",
+      "level": "blocking",
+      "passed": true,
+      "duration_ms": 51,
+      "evidence": "preview ready; product_master unchanged; staging job retained",
+      "error": null
+    },
+    {
+      "name": "l05_receiving_reference",
+      "level": "blocking",
+      "passed": true,
+      "duration_ms": 81,
+      "evidence": "重复入库键只生效一次",
+      "error": null
+    },
+    {
+      "name": "help_image",
+      "level": "observing",
+      "passed": false,
+      "duration_ms": 0,
+      "evidence": "教学设定：选读帮助缺辅助图片，操作文字完整；待补图",
+      "error": {
+        "type": "AssertionError",
+        "message": "教学设定：选读帮助缺辅助图片，操作文字完整；待补图"
+      }
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 3,
+    "blocking_failed": 1,
+    "observing_failed": 1,
+    "decision": "block"
+  }
+}

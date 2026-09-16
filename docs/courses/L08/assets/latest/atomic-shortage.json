@@ -1,0 +1,240 @@
+{
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\work\\CodexFDE\\docs\\courses\\L08\\examples\\atomic_reservation_lab.py",
+    "shortage"
+  ],
+  "cwd": "D:\\work\\CodexFDE",
+  "exit_code": 0,
+  "stdout": "{\n  \"mode\": \"shortage\",\n  \"evidence_kind\": \"actual_service_temporary_database\",\n  \"status\": \"confirmed\",\n  \"reserved\": [\n    0,\n    0\n  ],\n  \"available\": [\n    5,\n    2\n  ],\n  \"error\": {\n    \"type\": \"InsufficientStock\",\n    \"message\": \"SKU L08-B 库存不足：需要 3，可用 2，缺口 1\"\n  },\n  \"all_observed_tables_unchanged\": true,\n  \"observed_tables\": [\n    \"stock_balance\",\n    \"stock_reservations\",\n    \"sales_document_lines\",\n    \"sales_documents\"\n  ],\n  \"before\": {\n    \"stock_balance\": [\n      {\n        \"organization_id\": \"ORG-DEFAULT\",\n        \"product_id\": \"PRD-EBD6C078F54E47FCBAB11CEE6F263BD4\",\n        \"location_id\": \"LOC-MAIN-STOCK\",\n        \"lot_id\": \"\",\n        \"on_hand\": 5,\n        \"reserved\": 0,\n        \"incoming\": 0,\n        \"outgoing\": 0,\n        \"updated_at\": \"2026-09-08 16:13:00\",\n        \"version\": 2\n      },\n      {\n        \"organization_id\": \"ORG-DEFAULT\",\n        \"product_id\": \"PRD-84F2530E6530457C9D32F9EFE2EA82E5\",\n        \"location_id\": \"LOC-MAIN-STOCK\",\n        \"lot_id\": \"\",\n        \"on_hand\": 2,\n        \"reserved\": 0,\n        \"incoming\": 0,\n        \"outgoing\": 0,\n        \"updated_at\": \"2026-09-08 16:13:00\",\n        \"version\": 2\n      }\n    ],\n    \"stock_reservations\": [],\n    \"sales_document_lines\": [\n      {\n        \"id\": \"SOL-00BE2FDDF4E44253BE9ABCD992742B32\",\n        \"document_id\": \"SAL-18C79E2CB8B84ACFA94894B387169C2E\",\n        \"line_number\": 1,\n        \"product_id\": \"PRD-EBD6C078F54E47FCBAB11CEE6F263BD4\",\n        \"description\": \"A\",\n        \"ordered_quantity\": 2,\n        \"reserved_quantity\": 0,\n        \"shipped_quantity\": 0,\n        \"returned_quantity\": 0,\n        \"unit_price_cents\": 1000,\n        \"discount_basis_points\": 0,\n        \"tax_rate_basis_points\": 1300,\n        \"net_cents\": 2000,\n        \"tax_cents\": 260,\n        \"total_cents\": 2260,\n        \"warehouse_id\": \"SITE-MAIN\"\n      },\n      {\n        \"id\": \"SOL-6D165C3967AE4DC4B9F62235C1AB08FE\",\n        \"document_id\": \"SAL-18C79E2CB8B84ACFA94894B387169C2E\",\n        \"line_number\": 2,\n        \"product_id\": \"PRD-84F2530E6530457C9D32F9EFE2EA82E5\",\n        \"description\": \"B\",\n        \"ordered_quantity\": 3,\n        \"reserved_quantity\": 0,\n        \"shipped_quantity\": 0,\n        \"returned_quantity\": 0,\n        \"unit_price_cents\": 1000,\n        \"discount_basis_points\": 0,\n        \"tax_rate_basis_points\": 1300,\n        \"net_cents\": 3000,\n        \"tax_cents\": 390,\n        \"total_cents\": 3390,\n        \"warehouse_id\": \"SITE-MAIN\"\n      }\n    ],\n    \"sales_documents\": [\n      {\n        \"id\": \"SAL-18C79E2CB8B84ACFA94894B387169C2E\",\n        \"organization_id\": \"ORG-DEFAULT\",\n        \"document_number\": \"SO-20260909-00001\",\n        \"document_type\": \"order\",\n        \"customer_id\": \"CUS-35939765689A486ABBF0778F17DAB8B0\",\n        \"status\": \"confirmed\",\n        \"order_date\": \"2026-09-09\",\n        \"requested_delivery_date\": null,\n        \"currency\": \"CNY\",\n        \"exchange_rate_micros\": 1000000,\n        \"subtotal_cents\": 5000,\n        \"discount_cents\": 0,\n        \"tax_cents\": 650,\n        \"freight_cents\": 0,\n        \"total_cents\": 5650,\n        \"paid_cents\": 0,\n        \"shipping_address\": \"\",\n        \"billing_address\": \"\",\n        \"channel\": \"direct\",\n        \"external_reference\": \"__internal__:SAL-18C79E2CB8B84ACFA94894B387169C2E\",\n        \"notes\": \"\",\n        \"cancellation_reason\": \"\",\n        \"confirmed_at\": \"2026-09-08 16:13:00\",\n        \"shipped_at\": null,\n        \"cancelled_at\": null,\n        \"created_by\": \"system\",\n        \"created_at\": \"2026-09-08 16:13:00\",\n        \"updated_at\": \"2026-09-08 16:13:00\",\n        \"version\": 2\n      }\n    ]\n  },\n  \"after\": {\n    \"stock_balance\": [\n      {\n        \"organization_id\": \"ORG-DEFAULT\",\n        \"product_id\": \"PRD-EBD6C078F54E47FCBAB11CEE6F263BD4\",\n        \"location_id\": \"LOC-MAIN-STOCK\",\n        \"lot_id\": \"\",\n        \"on_hand\": 5,\n        \"reserved\": 0,\n        \"incoming\": 0,\n        \"outgoing\": 0,\n        \"updated_at\": \"2026-09-08 16:13:00\",\n        \"version\": 2\n      },\n      {\n        \"organization_id\": \"ORG-DEFAULT\",\n        \"product_id\": \"PRD-84F2530E6530457C9D32F9EFE2EA82E5\",\n        \"location_id\": \"LOC-MAIN-STOCK\",\n        \"lot_id\": \"\",\n        \"on_hand\": 2,\n        \"reserved\": 0,\n        \"incoming\": 0,\n        \"outgoing\": 0,\n        \"updated_at\": \"2026-09-08 16:13:00\",\n        \"version\": 2\n      }\n    ],\n    \"stock_reservations\": [],\n    \"sales_document_lines\": [\n      {\n        \"id\": \"SOL-00BE2FDDF4E44253BE9ABCD992742B32\",\n        \"document_id\": \"SAL-18C79E2CB8B84ACFA94894B387169C2E\",\n        \"line_number\": 1,\n        \"product_id\": \"PRD-EBD6C078F54E47FCBAB11CEE6F263BD4\",\n        \"description\": \"A\",\n        \"ordered_quantity\": 2,\n        \"reserved_quantity\": 0,\n        \"shipped_quantity\": 0,\n        \"returned_quantity\": 0,\n        \"unit_price_cents\": 1000,\n        \"discount_basis_points\": 0,\n        \"tax_rate_basis_points\": 1300,\n        \"net_cents\": 2000,\n        \"tax_cents\": 260,\n        \"total_cents\": 2260,\n        \"warehouse_id\": \"SITE-MAIN\"\n      },\n      {\n        \"id\": \"SOL-6D165C3967AE4DC4B9F62235C1AB08FE\",\n        \"document_id\": \"SAL-18C79E2CB8B84ACFA94894B387169C2E\",\n        \"line_number\": 2,\n        \"product_id\": \"PRD-84F2530E6530457C9D32F9EFE2EA82E5\",\n        \"description\": \"B\",\n        \"ordered_quantity\": 3,\n        \"reserved_quantity\": 0,\n        \"shipped_quantity\": 0,\n        \"returned_quantity\": 0,\n        \"unit_price_cents\": 1000,\n        \"discount_basis_points\": 0,\n        \"tax_rate_basis_points\": 1300,\n        \"net_cents\": 3000,\n        \"tax_cents\": 390,\n        \"total_cents\": 3390,\n        \"warehouse_id\": \"SITE-MAIN\"\n      }\n    ],\n    \"sales_documents\": [\n      {\n        \"id\": \"SAL-18C79E2CB8B84ACFA94894B387169C2E\",\n        \"organization_id\": \"ORG-DEFAULT\",\n        \"document_number\": \"SO-20260909-00001\",\n        \"document_type\": \"order\",\n        \"customer_id\": \"CUS-35939765689A486ABBF0778F17DAB8B0\",\n        \"status\": \"confirmed\",\n        \"order_date\": \"2026-09-09\",\n        \"requested_delivery_date\": null,\n        \"currency\": \"CNY\",\n        \"exchange_rate_micros\": 1000000,\n        \"subtotal_cents\": 5000,\n        \"discount_cents\": 0,\n        \"tax_cents\": 650,\n        \"freight_cents\": 0,\n        \"total_cents\": 5650,\n        \"paid_cents\": 0,\n        \"shipping_address\": \"\",\n        \"billing_address\": \"\",\n        \"channel\": \"direct\",\n        \"external_reference\": \"__internal__:SAL-18C79E2CB8B84ACFA94894B387169C2E\",\n        \"notes\": \"\",\n        \"cancellation_reason\": \"\",\n        \"confirmed_at\": \"2026-09-08 16:13:00\",\n        \"shipped_at\": null,\n        \"cancelled_at\": null,\n        \"created_by\": \"system\",\n        \"created_at\": \"2026-09-08 16:13:00\",\n        \"updated_at\": \"2026-09-08 16:13:00\",\n        \"version\": 2\n      }\n    ]\n  },\n  \"real_remote_run\": false\n}\n",
+  "stderr": "",
+  "source_sha256": "04995cc079904bc0e8840d83b2f423cd8a035bc02f028eda6bdbe52b0166d63b",
+  "result": {
+    "mode": "shortage",
+    "evidence_kind": "actual_service_temporary_database",
+    "status": "confirmed",
+    "reserved": [
+      0,
+      0
+    ],
+    "available": [
+      5,
+      2
+    ],
+    "error": {
+      "type": "InsufficientStock",
+      "message": "SKU L08-B 库存不足：需要 3，可用 2，缺口 1"
+    },
+    "all_observed_tables_unchanged": true,
+    "observed_tables": [
+      "stock_balance",
+      "stock_reservations",
+      "sales_document_lines",
+      "sales_documents"
+    ],
+    "before": {
+      "stock_balance": [
+        {
+          "organization_id": "ORG-DEFAULT",
+          "product_id": "PRD-EBD6C078F54E47FCBAB11CEE6F263BD4",
+          "location_id": "LOC-MAIN-STOCK",
+          "lot_id": "",
+          "on_hand": 5,
+          "reserved": 0,
+          "incoming": 0,
+          "outgoing": 0,
+          "updated_at": "2026-09-08 16:13:00",
+          "version": 2
+        },
+        {
+          "organization_id": "ORG-DEFAULT",
+          "product_id": "PRD-84F2530E6530457C9D32F9EFE2EA82E5",
+          "location_id": "LOC-MAIN-STOCK",
+          "lot_id": "",
+          "on_hand": 2,
+          "reserved": 0,
+          "incoming": 0,
+          "outgoing": 0,
+          "updated_at": "2026-09-08 16:13:00",
+          "version": 2
+        }
+      ],
+      "stock_reservations": [],
+      "sales_document_lines": [
+        {
+          "id": "SOL-00BE2FDDF4E44253BE9ABCD992742B32",
+          "document_id": "SAL-18C79E2CB8B84ACFA94894B387169C2E",
+          "line_number": 1,
+          "product_id": "PRD-EBD6C078F54E47FCBAB11CEE6F263BD4",
+          "description": "A",
+          "ordered_quantity": 2,
+          "reserved_quantity": 0,
+          "shipped_quantity": 0,
+          "returned_quantity": 0,
+          "unit_price_cents": 1000,
+          "discount_basis_points": 0,
+          "tax_rate_basis_points": 1300,
+          "net_cents": 2000,
+          "tax_cents": 260,
+          "total_cents": 2260,
+          "warehouse_id": "SITE-MAIN"
+        },
+        {
+          "id": "SOL-6D165C3967AE4DC4B9F62235C1AB08FE",
+          "document_id": "SAL-18C79E2CB8B84ACFA94894B387169C2E",
+          "line_number": 2,
+          "product_id": "PRD-84F2530E6530457C9D32F9EFE2EA82E5",
+          "description": "B",
+          "ordered_quantity": 3,
+          "reserved_quantity": 0,
+          "shipped_quantity": 0,
+          "returned_quantity": 0,
+          "unit_price_cents": 1000,
+          "discount_basis_points": 0,
+          "tax_rate_basis_points": 1300,
+          "net_cents": 3000,
+          "tax_cents": 390,
+          "total_cents": 3390,
+          "warehouse_id": "SITE-MAIN"
+        }
+      ],
+      "sales_documents": [
+        {
+          "id": "SAL-18C79E2CB8B84ACFA94894B387169C2E",
+          "organization_id": "ORG-DEFAULT",
+          "document_number": "SO-20260909-00001",
+          "document_type": "order",
+          "customer_id": "CUS-35939765689A486ABBF0778F17DAB8B0",
+          "status": "confirmed",
+          "order_date": "2026-09-09",
+          "requested_delivery_date": null,
+          "currency": "CNY",
+          "exchange_rate_micros": 1000000,
+          "subtotal_cents": 5000,
+          "discount_cents": 0,
+          "tax_cents": 650,
+          "freight_cents": 0,
+          "total_cents": 5650,
+          "paid_cents": 0,
+          "shipping_address": "",
+          "billing_address": "",
+          "channel": "direct",
+          "external_reference": "__internal__:SAL-18C79E2CB8B84ACFA94894B387169C2E",
+          "notes": "",
+          "cancellation_reason": "",
+          "confirmed_at": "2026-09-08 16:13:00",
+          "shipped_at": null,
+          "cancelled_at": null,
+          "created_by": "system",
+          "created_at": "2026-09-08 16:13:00",
+          "updated_at": "2026-09-08 16:13:00",
+          "version": 2
+        }
+      ]
+    },
+    "after": {
+      "stock_balance": [
+        {
+          "organization_id": "ORG-DEFAULT",
+          "product_id": "PRD-EBD6C078F54E47FCBAB11CEE6F263BD4",
+          "location_id": "LOC-MAIN-STOCK",
+          "lot_id": "",
+          "on_hand": 5,
+          "reserved": 0,
+          "incoming": 0,
+          "outgoing": 0,
+          "updated_at": "2026-09-08 16:13:00",
+          "version": 2
+        },
+        {
+          "organization_id": "ORG-DEFAULT",
+          "product_id": "PRD-84F2530E6530457C9D32F9EFE2EA82E5",
+          "location_id": "LOC-MAIN-STOCK",
+          "lot_id": "",
+          "on_hand": 2,
+          "reserved": 0,
+          "incoming": 0,
+          "outgoing": 0,
+          "updated_at": "2026-09-08 16:13:00",
+          "version": 2
+        }
+      ],
+      "stock_reservations": [],
+      "sales_document_lines": [
+        {
+          "id": "SOL-00BE2FDDF4E44253BE9ABCD992742B32",
+          "document_id": "SAL-18C79E2CB8B84ACFA94894B387169C2E",
+          "line_number": 1,
+          "product_id": "PRD-EBD6C078F54E47FCBAB11CEE6F263BD4",
+          "description": "A",
+          "ordered_quantity": 2,
+          "reserved_quantity": 0,
+          "shipped_quantity": 0,
+          "returned_quantity": 0,
+          "unit_price_cents": 1000,
+          "discount_basis_points": 0,
+          "tax_rate_basis_points": 1300,
+          "net_cents": 2000,
+          "tax_cents": 260,
+          "total_cents": 2260,
+          "warehouse_id": "SITE-MAIN"
+        },
+        {
+          "id": "SOL-6D165C3967AE4DC4B9F62235C1AB08FE",
+          "document_id": "SAL-18C79E2CB8B84ACFA94894B387169C2E",
+          "line_number": 2,
+          "product_id": "PRD-84F2530E6530457C9D32F9EFE2EA82E5",
+          "description": "B",
+          "ordered_quantity": 3,
+          "reserved_quantity": 0,
+          "shipped_quantity": 0,
+          "returned_quantity": 0,
+          "unit_price_cents": 1000,
+          "discount_basis_points": 0,
+          "tax_rate_basis_points": 1300,
+          "net_cents": 3000,
+          "tax_cents": 390,
+          "total_cents": 3390,
+          "warehouse_id": "SITE-MAIN"
+        }
+      ],
+      "sales_documents": [
+        {
+          "id": "SAL-18C79E2CB8B84ACFA94894B387169C2E",
+          "organization_id": "ORG-DEFAULT",
+          "document_number": "SO-20260909-00001",
+          "document_type": "order",
+          "customer_id": "CUS-35939765689A486ABBF0778F17DAB8B0",
+          "status": "confirmed",
+          "order_date": "2026-09-09",
+          "requested_delivery_date": null,
+          "currency": "CNY",
+          "exchange_rate_micros": 1000000,
+          "subtotal_cents": 5000,
+          "discount_cents": 0,
+          "tax_cents": 650,
+          "freight_cents": 0,
+          "total_cents": 5650,
+          "paid_cents": 0,
+          "shipping_address": "",
+          "billing_address": "",
+          "channel": "direct",
+          "external_reference": "__internal__:SAL-18C79E2CB8B84ACFA94894B387169C2E",
+          "notes": "",
+          "cancellation_reason": "",
+          "confirmed_at": "2026-09-08 16:13:00",
+          "shipped_at": null,
+          "cancelled_at": null,
+          "created_by": "system",
+          "created_at": "2026-09-08 16:13:00",
+          "updated_at": "2026-09-08 16:13:00",
+          "version": 2
+        }
+      ]
+    },
+    "real_remote_run": false
+  },
+  "real_remote_run": false
+}

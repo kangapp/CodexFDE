@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="drawio" version="26.0.0">
+  <diagram name="06-bootstrap-flow">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="e0" parent="1" source="a" target="b" edge="1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#596C7C;fontSize=22;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1" parent="1" source="b" target="c" edge="1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#596C7C;fontSize=22;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" parent="1" source="b" target="d" edge="1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#596C7C;fontSize=22;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="490" y="280" />
+              <mxPoint x="260" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" parent="1" source="c" target="e" edge="1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#596C7C;fontSize=22;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="935" y="280" />
+              <mxPoint x="860" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" parent="1" source="d" target="e" edge="1" value="比较前后" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#596C7C;fontSize=22;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a" parent="1" vertex="1" value="建设过程中的原始记录&#10;课程工具采集&#10;红灯  Diff  绿灯" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Microsoft YaHei;fontSize=24;fillColor=#F3F5F7;strokeColor=#697684;fontColor=#182330;">
+          <mxGeometry x="40" y="85" width="290" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="b" parent="1" vertex="1" value="自己的 V0.1 可用&#10;登记个人工作台项目&#10;创建自身建设任务" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Microsoft YaHei;fontSize=24;fillColor=#EAF2FA;strokeColor=#426A92;fontColor=#182330;">
+          <mxGeometry x="415" y="85" width="290" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="c" parent="1" vertex="1" value="选择三份原始记录&#10;核对阶段与时间&#10;导入同一任务" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Microsoft YaHei;fontSize=24;fillColor=#ECF5EF;strokeColor=#46745C;fontColor=#182330;">
+          <mxGeometry x="790" y="85" width="290" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="d" parent="1" vertex="1" value="导入前查询&#10;缺证据  原任务保持" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Microsoft YaHei;fontSize=24;fillColor=#FAEEEE;strokeColor=#A15B5B;fontColor=#182330;">
+          <mxGeometry x="40" y="340" width="440" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="e" parent="1" vertex="1" value="导入后查询&#10;材料完整  等待人工审核" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Microsoft YaHei;fontSize=24;fillColor=#FFF5E5;strokeColor=#96723D;fontColor=#182330;">
+          <mxGeometry x="640" y="340" width="440" height="105" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

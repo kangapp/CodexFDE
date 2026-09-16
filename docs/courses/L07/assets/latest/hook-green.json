@@ -1,0 +1,59 @@
+{
+  "id": "hook-green",
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "quality_gate.py"
+  ],
+  "cwd": "D:\\work\\CodexFDE\\.course-authoring\\L07\\deep\\candidate-r2",
+  "input": "{\"hook_event_name\": \"Stop\", \"cwd\": \"D:\\\\work\\\\CodexFDE\\\\.course-authoring\\\\L07\\\\deep\\\\candidate-r2\", \"stop_hook_active\": false}",
+  "exit_code": 0,
+  "stdout": "{\"continue\": true, \"systemMessage\": \"FlowERP 阻断级 Eval 已通过。\"}\n",
+  "stderr": "",
+  "real_codex_event": false,
+  "response": {
+    "continue": true,
+    "systemMessage": "FlowERP 阻断级 Eval 已通过。"
+  },
+  "evidence_kind": "manual_event_real_handler_real_harness",
+  "harness_report": {
+    "schema_version": "1.0",
+    "suite": "blocking",
+    "requested_cases": [],
+    "generated_at": "2026-09-08T11:48:22.939277+00:00",
+    "summary": {
+      "total": 3,
+      "passed": 3,
+      "blocking_failed": 0,
+      "observing_failed": 0,
+      "decision": "pass"
+    },
+    "results": [
+      {
+        "name": "l07_draft_amount",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 126,
+        "evidence": "两行金额 6000+6000=12000 分；状态 draft；零库存可建草稿且库存行不变",
+        "error": null
+      },
+      {
+        "name": "l07_reject_no_residue",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 106,
+        "evidence": "数量为零、第二行商品不存在均拒绝；订单头、明细、库存三表保持原样",
+        "error": null
+      },
+      {
+        "name": "l07_amount_transfer",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 108,
+        "evidence": "迁移输入：3×2500+2×1800=11100 分；排除写死 12000",
+        "error": null
+      }
+    ]
+  }
+}

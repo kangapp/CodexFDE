@@ -1,0 +1,30 @@
+[
+  {
+    "stage": "false-green",
+    "rows": 3,
+    "exit": 0,
+    "stdout": "{\"stage\": \"false-green\", \"summary\": {\"total\": 5, \"passed\": 3, \"blocking_failed\": 0, \"observing_failed\": 1, \"decision\": \"pass\"}, \"report\": \"D:\\\\work\\\\CodexFDE\\\\.course-authoring\\\\L06\\\\harness-core\\\\verified\\\\false-green-3.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "stage": "gate-fixed",
+    "rows": 3,
+    "exit": 1,
+    "stdout": "{\"stage\": \"gate-fixed\", \"summary\": {\"total\": 5, \"passed\": 3, \"blocking_failed\": 1, \"observing_failed\": 1, \"decision\": \"block\"}, \"report\": \"D:\\\\work\\\\CodexFDE\\\\.course-authoring\\\\L06\\\\harness-core\\\\verified\\\\gate-fixed-3.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "stage": "fixed",
+    "rows": 3,
+    "exit": 0,
+    "stdout": "{\"stage\": \"fixed\", \"summary\": {\"total\": 5, \"passed\": 4, \"blocking_failed\": 0, \"observing_failed\": 1, \"decision\": \"pass\"}, \"report\": \"D:\\\\work\\\\CodexFDE\\\\.course-authoring\\\\L06\\\\harness-core\\\\verified\\\\fixed-3.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "stage": "fixed",
+    "rows": 7,
+    "exit": 0,
+    "stdout": "{\"stage\": \"fixed\", \"summary\": {\"total\": 5, \"passed\": 4, \"blocking_failed\": 0, \"observing_failed\": 1, \"decision\": \"pass\"}, \"report\": \"D:\\\\work\\\\CodexFDE\\\\.course-authoring\\\\L06\\\\harness-core\\\\verified\\\\fixed-7.json\"}\n",
+    "stderr": ""
+  }
+]

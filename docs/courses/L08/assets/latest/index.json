@@ -1,0 +1,66 @@
+{
+  "runs": [
+    {
+      "file": "atomic-pass.json",
+      "exit_code": 0,
+      "scope": "actual_service_temporary_database"
+    },
+    {
+      "file": "atomic-shortage.json",
+      "exit_code": 0,
+      "scope": "actual_service_temporary_database"
+    },
+    {
+      "file": "atomic-write-error.json",
+      "exit_code": 0,
+      "scope": "actual_service_temporary_database"
+    },
+    {
+      "file": "signal-false-green.json",
+      "exit_code": 0,
+      "scope": "local_harness_with_teaching_case"
+    },
+    {
+      "file": "signal-true-red.json",
+      "exit_code": 1,
+      "scope": "local_harness_with_teaching_case"
+    },
+    {
+      "file": "signal-true-green.json",
+      "exit_code": 0,
+      "scope": "local_harness_with_teaching_case"
+    },
+    {
+      "file": "envelope-missing.json",
+      "exit_code": 0,
+      "scope": "local envelope boundary"
+    },
+    {
+      "file": "envelope-missing-identity.json",
+      "exit_code": 0,
+      "scope": "local envelope boundary"
+    },
+    {
+      "file": "envelope-malformed.json",
+      "exit_code": 0,
+      "scope": "local envelope boundary"
+    },
+    {
+      "file": "envelope-empty-report.json",
+      "exit_code": 0,
+      "scope": "local envelope boundary"
+    },
+    {
+      "file": "envelope-tampered.json",
+      "exit_code": 0,
+      "scope": "local envelope boundary"
+    },
+    {
+      "file": "envelope-stale-output.json",
+      "exit_code": 0,
+      "scope": "local envelope boundary"
+    }
+  ],
+  "real_remote_run": false,
+  "boundary": "Reference temporary database, local Harness teaching cases and declared SIMULATED identity; no GitHub job or learner acceptance"
+}

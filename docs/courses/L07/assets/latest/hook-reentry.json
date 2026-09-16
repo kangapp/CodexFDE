@@ -1,0 +1,20 @@
+{
+  "id": "hook-reentry",
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "quality_gate.py"
+  ],
+  "cwd": "D:\\work\\CodexFDE\\.course-authoring\\L07\\deep\\candidate-r2",
+  "input": "{\"hook_event_name\": \"Stop\", \"cwd\": \"D:\\\\work\\\\CodexFDE\\\\.course-authoring\\\\L07\\\\deep\\\\candidate-r2\", \"stop_hook_active\": true}",
+  "exit_code": 0,
+  "stdout": "{\"continue\": true, \"systemMessage\": \"质量 Hook 已运行过一次，避免重复续跑。\"}\n",
+  "stderr": "",
+  "real_codex_event": false,
+  "response": {
+    "continue": true,
+    "systemMessage": "质量 Hook 已运行过一次，避免重复续跑。"
+  },
+  "evidence_kind": "manual_event_real_handler_real_harness"
+}

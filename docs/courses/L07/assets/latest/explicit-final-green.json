@@ -1,0 +1,58 @@
+{
+  "id": "explicit-final-green",
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "eval.harness",
+    "--suite",
+    "blocking"
+  ],
+  "cwd": "D:\\work\\CodexFDE\\.course-authoring\\L07\\deep\\candidate-r2",
+  "input": null,
+  "exit_code": 0,
+  "stdout": "[PASS ] l07_draft_amount                       127 ms  两行金额 6000+6000=12000 分；状态 draft；零库存可建草稿且库存行不变\n[PASS ] l07_reject_no_residue                  110 ms  数量为零、第二行商品不存在均拒绝；订单头、明细、库存三表保持原样\n[PASS ] l07_amount_transfer                    103 ms  迁移输入：3×2500+2×1800=11100 分；排除写死 12000\n{\"total\": 3, \"passed\": 3, \"blocking_failed\": 0, \"observing_failed\": 0, \"decision\": \"pass\"}\n",
+  "stderr": "",
+  "real_codex_event": false,
+  "evidence_kind": "real_process_record",
+  "harness_report": {
+    "schema_version": "1.0",
+    "suite": "blocking",
+    "requested_cases": [],
+    "generated_at": "2026-09-08T11:48:23.816478+00:00",
+    "summary": {
+      "total": 3,
+      "passed": 3,
+      "blocking_failed": 0,
+      "observing_failed": 0,
+      "decision": "pass"
+    },
+    "results": [
+      {
+        "name": "l07_draft_amount",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 127,
+        "evidence": "两行金额 6000+6000=12000 分；状态 draft；零库存可建草稿且库存行不变",
+        "error": null
+      },
+      {
+        "name": "l07_reject_no_residue",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 110,
+        "evidence": "数量为零、第二行商品不存在均拒绝；订单头、明细、库存三表保持原样",
+        "error": null
+      },
+      {
+        "name": "l07_amount_transfer",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 103,
+        "evidence": "迁移输入：3×2500+2×1800=11100 分；排除写死 12000",
+        "error": null
+      }
+    ]
+  }
+}

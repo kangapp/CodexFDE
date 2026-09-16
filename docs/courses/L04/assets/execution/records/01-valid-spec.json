@@ -1,0 +1,17 @@
+{
+  "key": "01-valid-spec",
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "workbench.cli",
+    "spec",
+    "D:\\work\\CodexFDE\\.course-authoring\\L04\\execution-20260907\\WB-L04-BOOTSTRAP.md"
+  ],
+  "cwd": "D:\\work\\CodexFDE",
+  "exit_code": 0,
+  "stdout": "{\n  \"source\": \"承接 L01 工作台建设目的、L02 AGENTS 和 L03 六段解析要求；本次为参考实现复验，不是学生建设或人工接受记录。\",\n  \"goal\": \"复验 Spec、任务、受控执行、范围检查、最小 Eval 和待人工审核的连接。\",\n  \"non_goals\": \"不执行库存导出开发，不作人工接受，不声称已完成学生建设。\",\n  \"constraints\": \"只使用独立运行目录保存记录；失败保留证据；检查通过仍须等待人审。\",\n  \"acceptance\": \"1. 有效合同解析出六个字段，缺完成定义时明确拒绝。\\n2. 执行替身越界即使退出码为 0 也被阻止。\\n3. 参考任务通过 Eval 后停在 review，reviewed_by 为空。\\n4. 未独立接受的 A 不能启动 B。\",\n  \"done\": \"保存实际命令、退出码、原始输出和任务状态；人工接受仍未完成。\"\n}\n",
+  "stderr": "",
+  "captured_at": "2026-09-07T22:34:03.776905+08:00"
+}

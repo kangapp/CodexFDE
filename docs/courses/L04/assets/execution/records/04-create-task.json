@@ -1,0 +1,26 @@
+{
+  "key": "04-create-task",
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "workbench.cli",
+    "task-create",
+    "--runtime-dir",
+    "D:\\work\\CodexFDE\\.course-authoring\\L04\\execution-20260907\\runtime",
+    "--request",
+    "L04 参考实现复验，非学生建设记录；不作人工接受",
+    "--requirement-id",
+    "WB-L04-BOOTSTRAP",
+    "--spec-path",
+    "D:\\work\\CodexFDE\\.course-authoring\\L04\\execution-20260907\\WB-L04-BOOTSTRAP.md",
+    "--actor",
+    "codex-reference-check"
+  ],
+  "cwd": "D:\\work\\CodexFDE",
+  "exit_code": 0,
+  "stdout": "{\n  \"id\": \"TASK-D41D18C759\",\n  \"request\": \"L04 参考实现复验，非学生建设记录；不作人工接受\",\n  \"status\": \"queued\",\n  \"error\": null,\n  \"requirement_id\": \"WB-L04-BOOTSTRAP\",\n  \"spec_path\": \"D:\\\\work\\\\CodexFDE\\\\.course-authoring\\\\L04\\\\execution-20260907\\\\WB-L04-BOOTSTRAP.md\",\n  \"reviewed_by\": null,\n  \"review_decision\": null,\n  \"review_note\": null,\n  \"reviewed_at\": null,\n  \"automation_mode\": \"manual\",\n  \"execution_mode\": \"verify\",\n  \"execution_timeout_seconds\": 900,\n  \"version\": 1,\n  \"created_at\": \"2026-09-07 14:34:10\",\n  \"updated_at\": \"2026-09-07 14:34:10\",\n  \"spec\": null,\n  \"result\": null,\n  \"business_refs\": [],\n  \"write_scope\": [],\n  \"events\": [\n    {\n      \"id\": 1,\n      \"task_id\": \"TASK-D41D18C759\",\n      \"from_status\": null,\n      \"to_status\": \"queued\",\n      \"detail\": \"任务已接收\",\n      \"actor\": \"codex-reference-check\",\n      \"created_at\": \"2026-09-07 14:34:10\",\n      \"evidence\": {\n        \"requirement_id\": \"WB-L04-BOOTSTRAP\",\n        \"business_refs\": [],\n        \"spec_path\": \"D:\\\\work\\\\CodexFDE\\\\.course-authoring\\\\L04\\\\execution-20260907\\\\WB-L04-BOOTSTRAP.md\",\n        \"automation_mode\": \"manual\",\n        \"execution_mode\": \"verify\",\n        \"write_scope\": [],\n        \"execution_timeout_seconds\": 900\n      }\n    }\n  ]\n}\n",
+  "stderr": "",
+  "captured_at": "2026-09-07T22:34:10.406480+08:00"
+}

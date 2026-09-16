@@ -1,0 +1,24 @@
+{
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\work\\CodexFDE\\docs\\courses\\L08\\examples\\envelope_boundary_lab.py",
+    "missing-identity"
+  ],
+  "cwd": "D:\\work\\CodexFDE",
+  "exit_code": 0,
+  "stdout": "{\n  \"mode\": \"missing-identity\",\n  \"envelope\": null,\n  \"error\": {\n    \"type\": \"SystemExit\",\n    \"message\": \"Evidence Envelope 缺少 GITHUB_SHA 或 GITHUB_RUN_ID\"\n  },\n  \"real_remote_run\": false\n}\n",
+  "stderr": "",
+  "source_sha256": "5a04a9b7f6a446bb1154b49bd2131799530312afd43dd578a2ffe419f00ac5d4",
+  "result": {
+    "mode": "missing-identity",
+    "envelope": null,
+    "error": {
+      "type": "SystemExit",
+      "message": "Evidence Envelope 缺少 GITHUB_SHA 或 GITHUB_RUN_ID"
+    },
+    "real_remote_run": false
+  },
+  "real_remote_run": false
+}

@@ -1,0 +1,64 @@
+{
+  "id": "explicit-still-red",
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "eval.harness",
+    "--suite",
+    "blocking"
+  ],
+  "cwd": "D:\\work\\CodexFDE\\.course-authoring\\L07\\deep\\candidate-r2",
+  "input": null,
+  "exit_code": 1,
+  "stdout": "[BLOCK] l07_draft_amount                       125 ms  AssertionError: expected=12000 actual=5000\n[PASS ] l07_reject_no_residue                  108 ms  数量为零、第二行商品不存在均拒绝；订单头、明细、库存三表保持原样\n[BLOCK] l07_amount_transfer                    100 ms  AssertionError: expected=11100 actual=4300\n{\"total\": 3, \"passed\": 1, \"blocking_failed\": 2, \"observing_failed\": 0, \"decision\": \"block\"}\n",
+  "stderr": "",
+  "real_codex_event": false,
+  "evidence_kind": "real_process_record",
+  "harness_report": {
+    "schema_version": "1.0",
+    "suite": "blocking",
+    "requested_cases": [],
+    "generated_at": "2026-09-08T11:48:21.993746+00:00",
+    "summary": {
+      "total": 3,
+      "passed": 1,
+      "blocking_failed": 2,
+      "observing_failed": 0,
+      "decision": "block"
+    },
+    "results": [
+      {
+        "name": "l07_draft_amount",
+        "level": "blocking",
+        "passed": false,
+        "duration_ms": 125,
+        "evidence": "AssertionError: expected=12000 actual=5000",
+        "error": {
+          "type": "AssertionError",
+          "message": "expected=12000 actual=5000"
+        }
+      },
+      {
+        "name": "l07_reject_no_residue",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 108,
+        "evidence": "数量为零、第二行商品不存在均拒绝；订单头、明细、库存三表保持原样",
+        "error": null
+      },
+      {
+        "name": "l07_amount_transfer",
+        "level": "blocking",
+        "passed": false,
+        "duration_ms": 100,
+        "evidence": "AssertionError: expected=11100 actual=4300",
+        "error": {
+          "type": "AssertionError",
+          "message": "expected=11100 actual=4300"
+        }
+      }
+    ]
+  }
+}

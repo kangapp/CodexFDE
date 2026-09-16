@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="drawio" version="26.0.0">
+  <diagram name="03-object-relations">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="e0" parent="1" source="a" target="b" edge="1" value="1 对多" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#596C7C;fontSize=22;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1" parent="1" source="b" target="c" edge="1" value="1 对多" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#596C7C;fontSize=22;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a" parent="1" vertex="1" value="项目&#10;稳定项目编号&#10;名称与代码位置&#10;长期开发背景" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Microsoft YaHei;fontSize=24;fillColor=#EAF2FA;strokeColor=#426A92;fontColor=#182330;">
+          <mxGeometry x="30" y="70" width="285" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="b" parent="1" vertex="1" value="任务&#10;任务编号与项目归属&#10;本次目标&#10;创建时需求与问题快照" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Microsoft YaHei;fontSize=24;fillColor=#ECF5EF;strokeColor=#46745C;fontColor=#182330;">
+          <mxGeometry x="420" y="70" width="285" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="c" parent="1" vertex="1" value="运行记录&#10;阶段与原始命令&#10;输出与真实退出码&#10;观察时间与记录归属" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Microsoft YaHei;fontSize=24;fillColor=#F3F5F7;strokeColor=#697684;fontColor=#182330;">
+          <mxGeometry x="810" y="70" width="285" height="240" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

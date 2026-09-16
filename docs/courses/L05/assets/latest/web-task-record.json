@@ -1,0 +1,186 @@
+{
+  "lesson": 5,
+  "implementation_evidence": false,
+  "baseline": {
+    "lesson": 5,
+    "baseline_ref": "course/l05-start",
+    "baseline_commit": "e1bcc0588757ca025240ad88fb400b4d9f66f6c7",
+    "head_commit": "bbd80f5dff297f723dd1f5380363244960f2a9ce",
+    "ready": false
+  },
+  "isolation": null,
+  "differential": null,
+  "warning": "verify-only 只复验已有候选，不是本讲实现证据",
+  "task": {
+    "id": "TASK-DC0060EA39",
+    "request": "先构造重复入库会失败的 Eval，再实现同一个幂等键只生效一次。",
+    "status": "review",
+    "error": null,
+    "requirement_id": "REQ-COURSE-L05",
+    "spec_path": "D:\\work\\CodexFDE\\.course-authoring\\L05\\deep\\web-runtime\\course\\L05\\800a7a0cf8f8462eb24f940feaa21a73\\FDE_SPEC.md",
+    "reviewed_by": null,
+    "review_decision": null,
+    "review_note": null,
+    "reviewed_at": null,
+    "automation_mode": "manual",
+    "execution_mode": "verify",
+    "execution_timeout_seconds": 900,
+    "version": 5,
+    "created_at": "2026-09-08 07:57:06",
+    "updated_at": "2026-09-08 07:57:07",
+    "spec": {
+      "source": "- 课程主线合同：L05\n- 前置课次：L04\n- 业务对象：`SKU:COURSE-DEMO`\n- 起始基线：`course/l05-start`",
+      "goal": "先构造重复入库会失败的 Eval，再实现同一个幂等键只生效一次。\n\n工作台增量：失败优先的单例 Eval。  \nERP 产品增量：交付幂等入库。\n\n课程建设主线：用 Codex 搭建个人工作台；通过个人工作台组织人与 AI 协同开发 FlowERP。\n本讲所在阶段：通过个人工作台组织人与 Codex 协同开发 FlowERP。\nCodex 当讲角色：Eval 共同建造者与幂等入库修复者。\nFDE 循环：能力循环：重复收货事故先沉淀为反例，再修产品。\n因果交接：冻结失败优先 Eval 后，工作台才授权 Codex 修复 ERP。",
+      "non_goals": "- 不提前实现后续课次的 ERP 产品增量。\n- 不修改本讲允许写集之外的文件。\n- 不删除失败证据、降低 Eval 等级或绕过具名人工审核。",
+      "constraints": "- 允许写集：`flowerp/`、`eval/`、`tests/`\n- 本讲复用 Eval：`receiving_is_idempotent`\n- 库存、订单、采购和任务状态必须遵守 `AGENTS.md` 的不可破坏规则。\n- 执行结果必须保存需求、Diff、命令、Eval 和人工决定之间的稳定引用。",
+      "acceptance": "1. 首次入库增加库存。\n2. 同一幂等键重放不再次增加库存。\n3. 保留修复前红灯和修复后绿灯。",
+      "done": "- ERP 产品增量与工作台增量均有可复现证据，且能够说明二者因果。\n- 正常路径、失败路径和失败后不变状态均已验证。\n- 学生保存首次判断、失败、修订和复验结果；参考仓库终态不计作学生成果。\n- 若 `course-status --require-baselines` 未通过，不得声称完成了渐进式课程复现。"
+    },
+    "result": {
+      "schema_version": "1.0",
+      "suite": "blocking",
+      "requested_cases": [
+        "receiving_is_idempotent"
+      ],
+      "generated_at": "2026-09-08T07:57:07.022573+00:00",
+      "summary": {
+        "total": 1,
+        "passed": 1,
+        "blocking_failed": 0,
+        "observing_failed": 0,
+        "decision": "pass"
+      },
+      "results": [
+        {
+          "name": "receiving_is_idempotent",
+          "level": "blocking",
+          "passed": true,
+          "duration_ms": 79,
+          "evidence": "重复入库键只生效一次",
+          "error": null
+        }
+      ],
+      "report_path": "reports/TASK-DC0060EA39-harness-blocking.json",
+      "report_sha256": "9e8485c37858edd3725bbc77b51bab085df39a9db16faa88cb527dda4ec6b82b"
+    },
+    "business_refs": [
+      "SKU:COURSE-DEMO"
+    ],
+    "write_scope": [
+      "flowerp",
+      "eval",
+      "tests"
+    ],
+    "events": [
+      {
+        "id": 1,
+        "task_id": "TASK-DC0060EA39",
+        "from_status": null,
+        "to_status": "queued",
+        "detail": "任务已接收",
+        "actor": "L05-reference-verifier",
+        "created_at": "2026-09-08 07:57:06",
+        "evidence": {
+          "requirement_id": "REQ-COURSE-L05",
+          "business_refs": [
+            "SKU:COURSE-DEMO"
+          ],
+          "spec_path": "D:\\work\\CodexFDE\\.course-authoring\\L05\\deep\\web-runtime\\course\\L05\\800a7a0cf8f8462eb24f940feaa21a73\\FDE_SPEC.md",
+          "automation_mode": "manual",
+          "execution_mode": "verify",
+          "write_scope": [
+            "flowerp",
+            "eval",
+            "tests"
+          ],
+          "execution_timeout_seconds": 900
+        }
+      },
+      {
+        "id": 2,
+        "task_id": "TASK-DC0060EA39",
+        "from_status": "queued",
+        "to_status": "spec_ready",
+        "detail": "结构化 Spec 已校验",
+        "actor": "L05-reference-verifier",
+        "created_at": "2026-09-08 07:57:06",
+        "evidence": {
+          "spec_path": "D:\\work\\CodexFDE\\.course-authoring\\L05\\deep\\web-runtime\\course\\L05\\800a7a0cf8f8462eb24f940feaa21a73\\FDE_SPEC.md"
+        }
+      },
+      {
+        "id": 3,
+        "task_id": "TASK-DC0060EA39",
+        "from_status": "spec_ready",
+        "to_status": "executing",
+        "detail": "开始受控执行",
+        "actor": "L05-reference-verifier",
+        "created_at": "2026-09-08 07:57:06",
+        "evidence": {
+          "requirement_id": "REQ-COURSE-L05",
+          "business_refs": [
+            "SKU:COURSE-DEMO"
+          ],
+          "execution_mode": "verify",
+          "write_scope": [
+            "flowerp",
+            "eval",
+            "tests"
+          ],
+          "execution_timeout_seconds": 900,
+          "allowed_actions": [
+            "read_spec",
+            "read_workspace",
+            "run_blocking_eval",
+            "run_workspace_shell"
+          ],
+          "forbidden_actions": [
+            "write_runtime_database",
+            "approve_business_document",
+            "skip_eval"
+          ]
+        }
+      },
+      {
+        "id": 4,
+        "task_id": "TASK-DC0060EA39",
+        "from_status": "executing",
+        "to_status": "executing",
+        "detail": "受控执行阶段完成",
+        "actor": "L05-reference-verifier",
+        "created_at": "2026-09-08 07:57:06",
+        "evidence": {
+          "success": true,
+          "mode": "verification_only",
+          "changed_files": [],
+          "message": "任务选择仅验证模式；不调用 Codex，不产生代码写入"
+        }
+      },
+      {
+        "id": 5,
+        "task_id": "TASK-DC0060EA39",
+        "from_status": "executing",
+        "to_status": "evaluating",
+        "detail": "运行统一阻断级 Eval",
+        "actor": "L05-reference-verifier",
+        "created_at": "2026-09-08 07:57:06",
+        "evidence": null
+      },
+      {
+        "id": 6,
+        "task_id": "TASK-DC0060EA39",
+        "from_status": "evaluating",
+        "to_status": "review",
+        "detail": "阻断级 Eval 已通过，等待具名人工审核",
+        "actor": "L05-reference-verifier",
+        "created_at": "2026-09-08 07:57:07",
+        "evidence": {
+          "decision": "pass",
+          "blocking_failed": 0,
+          "report_path": "reports/TASK-DC0060EA39-harness-blocking.json",
+          "report_sha256": "9e8485c37858edd3725bbc77b51bab085df39a9db16faa88cb527dda4ec6b82b"
+        }
+      }
+    ]
+  }
+}

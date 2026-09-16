@@ -1,0 +1,17 @@
+{
+  "key": "02-invalid-spec",
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "workbench.cli",
+    "spec",
+    "D:\\work\\CodexFDE\\.course-authoring\\L04\\execution-20260907\\missing-done.md"
+  ],
+  "cwd": "D:\\work\\CodexFDE",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"D:\\work\\CodexFDE\\workbench\\cli.py\", line 386, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"D:\\work\\CodexFDE\\workbench\\cli.py\", line 381, in main\n    result = demo(args.runtime_dir) if args.command == \"demo\" else load_spec(args.path).as_dict()\n                                                                   ^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\work\\CodexFDE\\workbench\\spec.py\", line 89, in load_spec\n    return parse_spec(Path(path).read_text(encoding=\"utf-8\"))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\work\\CodexFDE\\workbench\\spec.py\", line 68, in parse_spec\n    raise ValueError(f\"Spec 缺少必要章节：{', '.join(missing)}\")\nValueError: Spec 缺少必要章节：完成定义\n",
+  "captured_at": "2026-09-07T22:34:03.983250+08:00"
+}

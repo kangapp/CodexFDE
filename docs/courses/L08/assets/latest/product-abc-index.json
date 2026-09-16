@@ -1,0 +1,43 @@
+{
+  "runs": [
+    {
+      "phase": "A-false-green",
+      "harness_exit": 1,
+      "adapter_exit": 0,
+      "summary": {
+        "total": 3,
+        "passed": 2,
+        "blocking_failed": 1,
+        "observing_failed": 0,
+        "decision": "block"
+      }
+    },
+    {
+      "phase": "B-true-red",
+      "harness_exit": 1,
+      "adapter_exit": 1,
+      "summary": {
+        "total": 3,
+        "passed": 2,
+        "blocking_failed": 1,
+        "observing_failed": 0,
+        "decision": "block"
+      }
+    },
+    {
+      "phase": "C-true-green",
+      "harness_exit": 0,
+      "adapter_exit": 0,
+      "summary": {
+        "total": 3,
+        "passed": 3,
+        "blocking_failed": 0,
+        "observing_failed": 0,
+        "decision": "pass"
+      }
+    }
+  ],
+  "source": "teacher injected premature per-line commit and restored original transaction",
+  "real_remote_run": false,
+  "candidate": "D:\\work\\CodexFDE\\.course-authoring\\L08\\deep\\candidate-r2"
+}

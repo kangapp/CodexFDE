@@ -1,0 +1,30 @@
+{
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\work\\CodexFDE\\docs\\courses\\L08\\examples\\envelope_boundary_lab.py",
+    "empty-report"
+  ],
+  "cwd": "D:\\work\\CodexFDE",
+  "exit_code": 0,
+  "stdout": "{\n  \"mode\": \"empty-report\",\n  \"envelope\": {\n    \"commit_sha\": \"SIMULATED-SHA\",\n    \"run_id\": \"SIMULATED-RUN\",\n    \"workflow\": \"\",\n    \"runner_os\": \"\",\n    \"python\": \"3.11.15\",\n    \"suite\": null,\n    \"report_sha256\": \"44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a\",\n    \"report_decision\": null\n  },\n  \"error\": null,\n  \"real_remote_run\": false\n}\n",
+  "stderr": "",
+  "source_sha256": "5a04a9b7f6a446bb1154b49bd2131799530312afd43dd578a2ffe419f00ac5d4",
+  "result": {
+    "mode": "empty-report",
+    "envelope": {
+      "commit_sha": "SIMULATED-SHA",
+      "run_id": "SIMULATED-RUN",
+      "workflow": "",
+      "runner_os": "",
+      "python": "3.11.15",
+      "suite": null,
+      "report_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "report_decision": null
+    },
+    "error": null,
+    "real_remote_run": false
+  },
+  "real_remote_run": false
+}

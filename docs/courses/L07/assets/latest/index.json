@@ -1,0 +1,66 @@
+{
+  "candidate": "D:\\work\\CodexFDE\\.course-authoring\\L07\\deep\\candidate-r2",
+  "candidate_registry": "same eval.harness implementation, only registry replaced with three declared L07 checks",
+  "defect": "teacher injection: sum prices instead of quantity times price",
+  "repair": "teacher restored original formula; no Codex repair session claimed",
+  "manual_event": true,
+  "real_codex_event": false,
+  "cli_version": "codex-cli 0.153.4; version inspection only",
+  "reentry_report_hash_unchanged": "9a0310caf2c00e5e293fad281c991300f4315252ba750b3646735dc76d860ae3",
+  "files": {
+    "quality_gate.py": "3425e3fd06c4e7dc20b114e4f98102756a4c4014112058a1b43a4c580dbee79f",
+    "eval\\harness.py": "8c53ad7dd60c8067ea4acfd8e0f7150b5f89482f5ee0cff9e8ca79a24603f934",
+    "order_contract_checks.py": "77e1f401a1b811d7f9978d997613b925e0e14ec07ee664c3b3cff04eb54dd50f",
+    "flowerp\\service.py": "a9bde148b32bace3306060fddede78e896e27db2e63e70a0d2d5b27b6aa770a2"
+  },
+  "runs": [
+    {
+      "id": "hook-red",
+      "exit_code": 0
+    },
+    {
+      "id": "hook-reentry",
+      "exit_code": 0
+    },
+    {
+      "id": "explicit-still-red",
+      "exit_code": 1
+    },
+    {
+      "id": "hook-green",
+      "exit_code": 0
+    },
+    {
+      "id": "explicit-final-green",
+      "exit_code": 0
+    },
+    {
+      "id": "protocol-pass",
+      "exit_code": 0
+    },
+    {
+      "id": "protocol-block",
+      "exit_code": 0
+    },
+    {
+      "id": "protocol-reentry",
+      "exit_code": 0
+    },
+    {
+      "id": "protocol-malformed",
+      "exit_code": 0
+    },
+    {
+      "id": "protocol-timeout",
+      "exit_code": 0
+    },
+    {
+      "id": "protocol-command-error",
+      "exit_code": 0
+    },
+    {
+      "id": "order-reference",
+      "exit_code": 0
+    }
+  ]
+}

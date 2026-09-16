@@ -1,0 +1,20 @@
+{
+  "key": "03-control-checks",
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "tests.test_workbench.WorkbenchTests.test_codex_execution_runner_blocks_out_of_scope_writes",
+    "tests.test_workbench.WorkbenchTests.test_code_task_cannot_fall_back_to_verify_or_incomplete_evidence",
+    "tests.test_execution_streams",
+    "tests.test_bootstrap_handoff",
+    "-v"
+  ],
+  "cwd": "D:\\work\\CodexFDE",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "test_codex_execution_runner_blocks_out_of_scope_writes (tests.test_workbench.WorkbenchTests.test_codex_execution_runner_blocks_out_of_scope_writes) ... ok\ntest_code_task_cannot_fall_back_to_verify_or_incomplete_evidence (tests.test_workbench.WorkbenchTests.test_code_task_cannot_fall_back_to_verify_or_incomplete_evidence) ... ok\ntest_chinese_prompt_survives_the_process_gate (tests.test_execution_streams.ExecutionStreamTests.test_chinese_prompt_survives_the_process_gate) ... ok\ntest_full_stderr_is_drained_while_stdout_events_are_delivered (tests.test_execution_streams.ExecutionStreamTests.test_full_stderr_is_drained_while_stdout_events_are_delivered) ... ok\ntest_partial_line_cannot_bypass_timeout_and_is_preserved (tests.test_execution_streams.ExecutionStreamTests.test_partial_line_cannot_bypass_timeout_and_is_preserved) ... ok\ntest_silent_process_cannot_bypass_timeout (tests.test_execution_streams.ExecutionStreamTests.test_silent_process_cannot_bypass_timeout) ... ok\ntest_changed_control_code_invalidates_previously_accepted_ticket (tests.test_bootstrap_handoff.BootstrapHandoffTests.test_changed_control_code_invalidates_previously_accepted_ticket) ... ok\ntest_cli_service_rejects_before_task_creation_or_executor (tests.test_bootstrap_handoff.BootstrapHandoffTests.test_cli_service_rejects_before_task_creation_or_executor) ... ok\ntest_deleted_control_file_invalidates_acceptance_but_runtime_output_does_not (tests.test_bootstrap_handoff.BootstrapHandoffTests.test_deleted_control_file_invalidates_acceptance_but_runtime_output_does_not) ... ok\ntest_evaluation_binds_source_and_review_rejects_later_change (tests.test_bootstrap_handoff.BootstrapHandoffTests.test_evaluation_binds_source_and_review_rejects_later_change) ... ok\ntest_independent_verifier_can_also_review_verification_only_ticket (tests.test_bootstrap_handoff.BootstrapHandoffTests.test_independent_verifier_can_also_review_verification_only_ticket) ... ok\ntest_missing_unaccepted_wrong_requirement_and_self_review_rejected (tests.test_bootstrap_handoff.BootstrapHandoffTests.test_missing_unaccepted_wrong_requirement_and_self_review_rejected) ... ok\ntest_mutation_during_eval_does_not_produce_a_green_report (tests.test_bootstrap_handoff.BootstrapHandoffTests.test_mutation_during_eval_does_not_produce_a_green_report) ... ok\ntest_same_code_in_another_workspace_cannot_borrow_acceptance (tests.test_bootstrap_handoff.BootstrapHandoffTests.test_same_code_in_another_workspace_cannot_borrow_acceptance) ... ok\ntest_stale_parent_records_neither_half_of_link (tests.test_bootstrap_handoff.BootstrapHandoffTests.test_stale_parent_records_neither_half_of_link) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 6.026s\n\nOK\n",
+  "captured_at": "2026-09-07T22:34:10.205819+08:00"
+}

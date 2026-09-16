@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="drawio" version="26.0.0">
+  <diagram name="04-evidence-review">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="e0" parent="1" source="a" target="b" edge="1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#596C7C;fontSize=22;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1" parent="1" source="b" target="c" edge="1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#596C7C;fontSize=22;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" parent="1" source="c" target="d" edge="1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#596C7C;fontSize=22;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" parent="1" source="c" target="e" edge="1" value="未通过" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#596C7C;fontSize=22;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" parent="1" source="e" target="b" edge="1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#596C7C;fontSize=22;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a" parent="1" vertex="1" value="有效红灯&#10;同一验收项&#10;目标能力缺失" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Microsoft YaHei;fontSize=24;fillColor=#FAEEEE;strokeColor=#A15B5B;fontColor=#182330;">
+          <mxGeometry x="30" y="80" width="240" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="b" parent="1" vertex="1" value="范围内 Diff&#10;实际代码变化&#10;测试标准未放宽" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Microsoft YaHei;fontSize=24;fillColor=#EAF2FA;strokeColor=#426A92;fontColor=#182330;">
+          <mxGeometry x="305" y="80" width="240" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c" parent="1" vertex="1" value="正式复验&#10;同标准检查&#10;通过形成绿灯" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Microsoft YaHei;fontSize=24;fillColor=#ECF5EF;strokeColor=#46745C;fontColor=#182330;">
+          <mxGeometry x="580" y="80" width="240" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="d" parent="1" vertex="1" value="人工复核&#10;接受范围&#10;剩余问题" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Microsoft YaHei;fontSize=24;fillColor=#FFF5E5;strokeColor=#96723D;fontColor=#182330;">
+          <mxGeometry x="855" y="80" width="240" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="e" parent="1" vertex="1" value="实现仍失败  保留记录并修复&#10;重新保存 Diff 再正式复验" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Microsoft YaHei;fontSize=24;fillColor=#F3F5F7;strokeColor=#697684;fontColor=#182330;">
+          <mxGeometry x="305" y="355" width="515" height="105" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

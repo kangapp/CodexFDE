@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "lessons": {
+    "13": {
+      "name": "L13 · 工作台任务受理修订版（2026-09-05）",
+      "ref": "course/session/l13-20260905",
+      "commit": "8f0a33a2aa357cc717f5115d9277e9a42bb80e9b",
+      "validation": "维护演练已验证执行前失败、真实范围内修改、执行后通过；不代表学生学习证据或具名终审。",
+      "evidence_task": "TASK-B3832E419E"
+    },
+    "4": {
+      "name": "L04 · 委托 Codex 执行一次最小变更（2026-09-05）",
+      "ref": "course/session/l04-20260905",
+      "commit": "8177748816f2988f1e89b96fedd0fe24f7e3eba4",
+      "validation": "维护检查已验证起点失败与范围内参考修复后通过；不代表学生实现或具名终审。",
+      "source_tree": "c77f6746fe2ae0a9d8f92f897ab0bbdf02069b6d"
+    },
+    "5": {
+      "name": "L05 · 先设计失败，再编写 Eval（2026-09-05）",
+      "ref": "course/session/l05-20260905",
+      "commit": "0a73367f480500030559c46667b79a3917964463",
+      "validation": "维护检查已验证起点失败与范围内参考修复后通过；不代表学生实现或具名终审。",
+      "source_tree": "6e6f3778b4c3cd04a2c42f547afa6282406e66bd"
+    },
+    "6": {
+      "name": "L06 · 用 Harness 汇总证据和等级（2026-09-05）",
+      "ref": "course/session/l06-20260905",
+      "commit": "28f4ad430695a9df0a5334c23c3e8c6f6a1c3456",
+      "validation": "维护检查已验证起点失败与范围内参考修复后通过；不代表学生实现或具名终审。",
+      "source_tree": "875c01781d3e941640be5788eee5d23e78b702c6"
+    },
+    "7": {
+      "name": "L07 · 用 Codex Hooks 建立本地护栏（2026-09-05）",
+      "ref": "course/session/l07-20260905",
+      "commit": "8100780248cd39934a31f7df82976f418bca5c7e",
+      "validation": "维护检查已验证起点失败与范围内参考修复后通过；不代表学生实现或具名终审。",
+      "source_tree": "02b209ef53aff70bd7c7730366d6bb14afeb83b9"
+    },
+    "8": {
+      "name": "L08 · 把同一套 Eval 接入 CI（2026-09-05）",
+      "ref": "course/session/l08-20260905",
+      "commit": "c31d8e0b5894175c8c0e4ca45d62a933c81b3791",
+      "validation": "维护检查已验证起点失败与范围内参考修复后通过；不代表学生实现或具名终审。",
+      "source_tree": "1fb341b70f91a0849a62e4328b05ebec2aaed55f"
+    },
+    "9": {
+      "name": "L09 · 把失败报告翻译成修复任务（2026-09-05）",
+      "ref": "course/session/l09-20260905",
+      "commit": "2e2b3f2d3f01499b99edebbf688ab095cdd99193",
+      "validation": "维护检查已验证起点失败与范围内参考修复后通过；不代表学生实现或具名终审。",
+      "source_tree": "dd757a31aace493b49e0befc2269c3e204f405c3"
+    },
+    "10": {
+      "name": "L10 · 建立有停止条件的修复 Loop（2026-09-05）",
+      "ref": "course/session/l10-20260905",
+      "commit": "c80dd5a8ab28bc88faa70c33c1310f33e9f5fc4a",
+      "validation": "维护检查已验证起点失败与范围内参考修复后通过；不代表学生实现或具名终审。",
+      "source_tree": "f02ae3db28e8a98f6b23966f7c08da217639fc7f"
+    },
+    "11": {
+      "name": "L11 · 用 Codex 原生 Subagents 并行处理独立任务（2026-09-05）",
+      "ref": "course/session/l11-20260905",
+      "commit": "b5e8c2a94290a6ab94ec31f0804afb523ce57a92",
+      "validation": "维护检查已验证起点失败与范围内参考修复后通过；不代表学生实现或具名终审。",
+      "source_tree": "5dcc9337cea2842eab3eb434410532b4e5c19e8a"
+    },
+    "12": {
+      "name": "L12 · 用 Graph 显式表达状态、回退和人工审核（2026-09-05）",
+      "ref": "course/session/l12-20260905",
+      "commit": "b685a2a2a6da19a1d0f1338e748069f8e527ec5e",
+      "validation": "维护检查已验证起点失败与范围内参考修复后通过；不代表学生实现或具名终审。",
+      "source_tree": "d166d24014bab98303c63f0689fb7ef5d028daf2"
+    },
+    "14": {
+      "name": "L14 · 让交付状态在 Web 面板可见（2026-09-05）",
+      "ref": "course/session/l14-20260905",
+      "commit": "80d90b2f378adc0a6b96eaab17a5c0005796ab0c",
+      "validation": "维护检查已验证起点失败与范围内参考修复后通过；不代表学生实现或具名终审。",
+      "source_tree": "4a1d95b85fdd42e9e1ea4921a69c6cd2aac4a36c"
+    }
+  }
+}

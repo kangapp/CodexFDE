@@ -1,0 +1,134 @@
+{
+  "candidate": "D:\\work\\CodexFDE\\.course-authoring\\L06\\deep\\candidate",
+  "base": "c767ed758220a65066419c77c313c0effd77c10a",
+  "defect": "only CSV available replaced by on_hand in isolated ERPService",
+  "defect_sha256": "7f68fe17da4c119c8d8f7912a6b47f8c32829b0fe34bb6b08e1c813a438daf79",
+  "repair": "restore original available field; authored repair, not Codex execution",
+  "check_sha256": "24d3db1e1f2e762d42646b67e714ed78364b5349646f7501aa63fe10da279afb",
+  "l05_scripts": {
+    "receiving_contract_eval.py": "4ecc542dca98d7401348f6965d4cddd7a9fe12f4933cbee18b27b4f90b8ac2b1",
+    "write_scope_eval.py": "1f9e7b28519c37b636619583d03a97b8650ab3d0825e8e853536274863af9cfd"
+  },
+  "runs": [
+    {
+      "id": "01-stock-red",
+      "exit_code": 1,
+      "summary": {
+        "total": 3,
+        "passed": 2,
+        "blocking_failed": 1,
+        "observing_failed": 0,
+        "decision": "block"
+      }
+    },
+    {
+      "id": "02-stock-red-repeat",
+      "exit_code": 1,
+      "summary": {
+        "total": 3,
+        "passed": 2,
+        "blocking_failed": 1,
+        "observing_failed": 0,
+        "decision": "block"
+      }
+    },
+    {
+      "id": "03-stock-green",
+      "exit_code": 0,
+      "summary": {
+        "total": 3,
+        "passed": 3,
+        "blocking_failed": 0,
+        "observing_failed": 0,
+        "decision": "pass"
+      }
+    },
+    {
+      "id": "04-stock-transfer",
+      "exit_code": 0,
+      "summary": {
+        "total": 3,
+        "passed": 3,
+        "blocking_failed": 0,
+        "observing_failed": 0,
+        "decision": "pass"
+      }
+    },
+    {
+      "id": "05-scope-red",
+      "exit_code": 1,
+      "summary": {
+        "total": 3,
+        "passed": 2,
+        "blocking_failed": 1,
+        "observing_failed": 0,
+        "decision": "block"
+      }
+    },
+    {
+      "id": "harness-pass",
+      "exit_code": 0,
+      "summary": {
+        "total": 1,
+        "passed": 1,
+        "blocking_failed": 0,
+        "observing_failed": 0,
+        "decision": "pass"
+      }
+    },
+    {
+      "id": "harness-blocking",
+      "exit_code": 1,
+      "summary": {
+        "total": 2,
+        "passed": 1,
+        "blocking_failed": 1,
+        "observing_failed": 0,
+        "decision": "block"
+      }
+    },
+    {
+      "id": "harness-observing",
+      "exit_code": 0,
+      "summary": {
+        "total": 2,
+        "passed": 1,
+        "blocking_failed": 0,
+        "observing_failed": 1,
+        "decision": "pass"
+      }
+    },
+    {
+      "id": "harness-error",
+      "exit_code": 1,
+      "summary": {
+        "total": 2,
+        "passed": 1,
+        "blocking_failed": 1,
+        "observing_failed": 0,
+        "decision": "block"
+      }
+    },
+    {
+      "id": "harness-unknown",
+      "exit_code": 2,
+      "summary": null
+    },
+    {
+      "id": "harness-empty",
+      "exit_code": 2,
+      "summary": null
+    },
+    {
+      "id": "harness-wrong-suite",
+      "exit_code": 2,
+      "summary": null
+    },
+    {
+      "id": "harness-write-error",
+      "exit_code": 1,
+      "summary": null
+    }
+  ],
+  "human_review": "not performed"
+}

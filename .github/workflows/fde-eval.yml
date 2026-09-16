@@ -1,0 +1,78 @@
+# FDE 工作台质量链（L08：把同一套 Eval 接入 CI）。
+# 阻断级 Eval 的退出码决定是否放行；观察项保留在报告中。
+# 此工作流只验证工作台，不代表独立 FlowERP 客户项目的业务验收通过。
+
+name: FDE Eval & Quality Gate
+
+on:
+  push:
+    paths:
+      - ".github/workflows/fde-eval.yml"
+      - "pyproject.toml"
+      - "main.py"
+      - "workbench/**"
+      - "workbench_web/**"
+      - "harness_web/**"
+      - "tests/**"
+      - "scripts/**"
+      - "docs/**"
+      - "eval/**"
+      - "hooks/**"
+      - "agent/**"
+  pull_request:
+  schedule:
+    # 每日 08:00 UTC（北京时间 16:00）定时跑 Eval
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  eval:
+    name: Eval Harness + Quality Gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 安装工作台
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install -e .
+          echo "$GITHUB_WORKSPACE/.venv/bin" >> "$GITHUB_PATH"
+
+      - name: Check workbench installation
+        run: python -X utf8 -m workbench.cli environment-check
+
+      - name: 运行 Eval Harness（量化打分）
+        id: eval
+        run: python -X utf8 -m eval.harness --suite all --report-path .runtime/reports/fde-eval.json
+
+      - name: 运行有界 Loop（本地验证模式）
+        run: python -X utf8 -m agent.loop --max-rounds 3
+
+      - name: 运行 Graph 状态流转（本地演示，非具名人审）
+        run: python -X utf8 -m agent.graph --max-rounds 3
+
+      - name: 检查工作台反馈入口
+        run: python -X utf8 -m workbench.feedback summary
+
+      - name: 绑定本次 CI 的评估证据
+        if: always()
+        run: python -X utf8 -m workbench.ci_evidence --report .runtime/reports/fde-eval.json --output .runtime/reports/fde-ci-evidence.json
+
+      - name: 上传评估报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-report
+          path: |
+            .runtime/reports/fde-eval.json
+            .runtime/reports/fde-ci-evidence.json
+          include-hidden-files: true
+          if-no-files-found: error

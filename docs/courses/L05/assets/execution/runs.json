@@ -1,0 +1,191 @@
+{
+  "claim": "实际运行的教学实验；临时库和临时仓库，不是学生交付或人工验收",
+  "sources": {
+    "docs\\courses\\L05\\examples\\receiving_eval.py": "0b961cb608ea0b3497aa113168b2fc739a3bbd2527838c5995b25db58129c694",
+    "docs\\courses\\L05\\examples\\write_scope_eval.py": "1f9e7b28519c37b636619583d03a97b8650ab3d0825e8e853536274863af9cfd"
+  },
+  "runs": [
+    {
+      "label": "business-red-1",
+      "command": [
+        "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\receiving_eval.py",
+        "--defect"
+      ],
+      "cwd": "D:\\work\\CodexFDE",
+      "exit_code": 1,
+      "stdout": "{\"case\": \"receiving_identity_and_ledger\", \"status\": \"fail\", \"reason\": \"AC-REPLAY 同一请求重试必须保持库存和流水；期望库存=28，实际=36；期望流水数=2，实际=3\", \"teaching_defect\": true}\n",
+      "stderr": "",
+      "observed_at": "2026-09-07T15:31:08.376687+00:00"
+    },
+    {
+      "label": "business-red-2",
+      "command": [
+        "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\receiving_eval.py",
+        "--defect"
+      ],
+      "cwd": "D:\\work\\CodexFDE",
+      "exit_code": 1,
+      "stdout": "{\"case\": \"receiving_identity_and_ledger\", \"status\": \"fail\", \"reason\": \"AC-REPLAY 同一请求重试必须保持库存和流水；期望库存=28，实际=36；期望流水数=2，实际=3\", \"teaching_defect\": true}\n",
+      "stderr": "",
+      "observed_at": "2026-09-07T15:31:08.628687+00:00"
+    },
+    {
+      "label": "business-green",
+      "command": [
+        "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\receiving_eval.py"
+      ],
+      "cwd": "D:\\work\\CodexFDE",
+      "exit_code": 0,
+      "stdout": "{\"case\": \"receiving_identity_and_ledger\", \"status\": \"pass\", \"first_on_hand\": 28, \"replay_on_hand\": 28, \"new_on_hand\": 36, \"replay_events\": 2, \"invalid_quantities_rejected\": [0, -1], \"failure_state_unchanged\": true, \"mode\": \"reference_service\"}\n",
+      "stderr": "",
+      "observed_at": "2026-09-07T15:31:08.899334+00:00"
+    },
+    {
+      "label": "business-transfer",
+      "command": [
+        "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\receiving_eval.py",
+        "--opening",
+        "11",
+        "--quantity",
+        "3"
+      ],
+      "cwd": "D:\\work\\CodexFDE",
+      "exit_code": 0,
+      "stdout": "{\"case\": \"receiving_identity_and_ledger\", \"status\": \"pass\", \"first_on_hand\": 14, \"replay_on_hand\": 14, \"new_on_hand\": 17, \"replay_events\": 2, \"invalid_quantities_rejected\": [0, -1], \"failure_state_unchanged\": true, \"mode\": \"reference_service\"}\n",
+      "stderr": "",
+      "observed_at": "2026-09-07T15:31:09.165284+00:00"
+    },
+    {
+      "label": "scope-legal",
+      "command": [
+        "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\write_scope_eval.py",
+        "--repo",
+        "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-31c3zr9q\\candidate",
+        "--base",
+        "449a27ea0d85906515662e3741e682c3462c6c5c",
+        "--allow-file",
+        "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-31c3zr9q\\allow.json"
+      ],
+      "cwd": "D:\\work\\CodexFDE",
+      "exit_code": 0,
+      "stdout": "{\"case\": \"actual_candidate_scope\", \"requirement\": \"ENG-SCOPE\", \"status\": \"pass\", \"base\": \"449a27ea0d85906515662e3741e682c3462c6c5c\", \"repository\": \"C:\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\l05-scope-31c3zr9q\\\\candidate\", \"changed\": [\"flowerp/service.py\"], \"unexpected\": [], \"source\": \"git diff base plus non-ignored untracked paths\", \"limits\": \"不覆盖被忽略文件、已撤销写入、仓库外写入或子模块内部差异\"}\n",
+      "stderr": "",
+      "observed_at": "2026-09-07T15:31:10.006097+00:00"
+    },
+    {
+      "label": "scope-red-1",
+      "command": [
+        "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\write_scope_eval.py",
+        "--repo",
+        "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-31c3zr9q\\candidate",
+        "--base",
+        "449a27ea0d85906515662e3741e682c3462c6c5c",
+        "--allow-file",
+        "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-31c3zr9q\\allow.json"
+      ],
+      "cwd": "D:\\work\\CodexFDE",
+      "exit_code": 1,
+      "stdout": "{\"case\": \"actual_candidate_scope\", \"requirement\": \"ENG-SCOPE\", \"status\": \"fail\", \"base\": \"449a27ea0d85906515662e3741e682c3462c6c5c\", \"repository\": \"C:\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\l05-scope-31c3zr9q\\\\candidate\", \"changed\": [\"flowerp/service.py\", \"web/unexpected.txt\"], \"unexpected\": [\"web/unexpected.txt\"], \"source\": \"git diff base plus non-ignored untracked paths\", \"limits\": \"不覆盖被忽略文件、已撤销写入、仓库外写入或子模块内部差异\"}\n",
+      "stderr": "",
+      "observed_at": "2026-09-07T15:31:10.237700+00:00"
+    },
+    {
+      "label": "scope-red-2",
+      "command": [
+        "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\write_scope_eval.py",
+        "--repo",
+        "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-31c3zr9q\\candidate",
+        "--base",
+        "449a27ea0d85906515662e3741e682c3462c6c5c",
+        "--allow-file",
+        "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-31c3zr9q\\allow.json"
+      ],
+      "cwd": "D:\\work\\CodexFDE",
+      "exit_code": 1,
+      "stdout": "{\"case\": \"actual_candidate_scope\", \"requirement\": \"ENG-SCOPE\", \"status\": \"fail\", \"base\": \"449a27ea0d85906515662e3741e682c3462c6c5c\", \"repository\": \"C:\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\l05-scope-31c3zr9q\\\\candidate\", \"changed\": [\"flowerp/service.py\", \"web/unexpected.txt\"], \"unexpected\": [\"web/unexpected.txt\"], \"source\": \"git diff base plus non-ignored untracked paths\", \"limits\": \"不覆盖被忽略文件、已撤销写入、仓库外写入或子模块内部差异\"}\n",
+      "stderr": "",
+      "observed_at": "2026-09-07T15:31:10.471983+00:00"
+    },
+    {
+      "label": "scope-green",
+      "command": [
+        "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\write_scope_eval.py",
+        "--repo",
+        "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-31c3zr9q\\candidate",
+        "--base",
+        "449a27ea0d85906515662e3741e682c3462c6c5c",
+        "--allow-file",
+        "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-31c3zr9q\\allow.json"
+      ],
+      "cwd": "D:\\work\\CodexFDE",
+      "exit_code": 0,
+      "stdout": "{\"case\": \"actual_candidate_scope\", \"requirement\": \"ENG-SCOPE\", \"status\": \"pass\", \"base\": \"449a27ea0d85906515662e3741e682c3462c6c5c\", \"repository\": \"C:\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\l05-scope-31c3zr9q\\\\candidate\", \"changed\": [\"flowerp/service.py\"], \"unexpected\": [], \"source\": \"git diff base plus non-ignored untracked paths\", \"limits\": \"不覆盖被忽略文件、已撤销写入、仓库外写入或子模块内部差异\"}\n",
+      "stderr": "",
+      "observed_at": "2026-09-07T15:31:10.710089+00:00"
+    },
+    {
+      "label": "scope-rename",
+      "command": [
+        "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\write_scope_eval.py",
+        "--repo",
+        "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-31c3zr9q\\candidate",
+        "--base",
+        "449a27ea0d85906515662e3741e682c3462c6c5c",
+        "--allow-file",
+        "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-31c3zr9q\\allow.json"
+      ],
+      "cwd": "D:\\work\\CodexFDE",
+      "exit_code": 1,
+      "stdout": "{\"case\": \"actual_candidate_scope\", \"requirement\": \"ENG-SCOPE\", \"status\": \"fail\", \"base\": \"449a27ea0d85906515662e3741e682c3462c6c5c\", \"repository\": \"C:\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\l05-scope-31c3zr9q\\\\candidate\", \"changed\": [\"flowerp/service.py\", \"web/moved.py\"], \"unexpected\": [\"web/moved.py\"], \"source\": \"git diff base plus non-ignored untracked paths\", \"limits\": \"不覆盖被忽略文件、已撤销写入、仓库外写入或子模块内部差异\"}\n",
+      "stderr": "",
+      "observed_at": "2026-09-07T15:31:10.941817+00:00"
+    },
+    {
+      "label": "scope-invalid-base",
+      "command": [
+        "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\work\\CodexFDE\\docs\\courses\\L05\\examples\\write_scope_eval.py",
+        "--repo",
+        "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-31c3zr9q\\candidate",
+        "--base",
+        "missing-ref",
+        "--allow-file",
+        "C:\\Users\\Administrator\\AppData\\Local\\Temp\\l05-scope-31c3zr9q\\allow.json"
+      ],
+      "cwd": "D:\\work\\CodexFDE",
+      "exit_code": 2,
+      "stdout": "{\"status\": \"error\", \"reason\": \"Command '['git', '-C', 'C:\\\\\\\\Users\\\\\\\\Administrator\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\l05-scope-31c3zr9q\\\\\\\\candidate', 'rev-parse', '--verify', 'missing-ref^{commit}']' returned non-zero exit status 128.\"}\n",
+      "stderr": "fatal: Needed a single revision\n",
+      "observed_at": "2026-09-07T15:31:11.093891+00:00"
+    }
+  ]
+}

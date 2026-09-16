@@ -1,0 +1,17 @@
+{
+  "id": "protocol-block",
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\work\\CodexFDE\\docs\\courses\\L07\\examples\\hook_protocol_lab.py",
+    "block"
+  ],
+  "cwd": "D:\\work\\CodexFDE",
+  "input": null,
+  "exit_code": 0,
+  "stdout": "{\n  \"mode\": \"block\",\n  \"evidence_kind\": \"adapter_with_test_double\",\n  \"handler\": \"D:\\\\work\\\\CodexFDE\\\\.codex\\\\hooks\\\\quality_gate.py\",\n  \"input\": \"{\\\"hook_event_name\\\": \\\"Stop\\\", \\\"cwd\\\": \\\"D:\\\\\\\\work\\\\\\\\CodexFDE\\\", \\\"stop_hook_active\\\": false}\",\n  \"harness_call_count\": 1,\n  \"subprocess_timeout_configured\": false,\n  \"handler_return\": 0,\n  \"exception\": null,\n  \"stdout\": \"{\\\"decision\\\": \\\"block\\\", \\\"reason\\\": \\\"阻断级 Eval 未通过。修复后重新验证：\\\\nORDER-TOTAL expected=12000 actual=5000\\\"}\\n\",\n  \"stderr\": \"\",\n  \"response\": {\n    \"decision\": \"block\",\n    \"reason\": \"阻断级 Eval 未通过。修复后重新验证：\\nORDER-TOTAL expected=12000 actual=5000\"\n  },\n  \"real_codex_event\": false\n}\n",
+  "stderr": "",
+  "real_codex_event": false,
+  "evidence_kind": "real_process_record"
+}

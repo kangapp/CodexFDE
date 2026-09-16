@@ -1,0 +1,24 @@
+{
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\work\\CodexFDE\\docs\\courses\\L08\\examples\\envelope_boundary_lab.py",
+    "malformed"
+  ],
+  "cwd": "D:\\work\\CodexFDE",
+  "exit_code": 0,
+  "stdout": "{\n  \"mode\": \"malformed\",\n  \"envelope\": null,\n  \"error\": {\n    \"type\": \"JSONDecodeError\",\n    \"message\": \"Expecting property name enclosed in double quotes: line 1 column 2 (char 1)\"\n  },\n  \"real_remote_run\": false\n}\n",
+  "stderr": "",
+  "source_sha256": "5a04a9b7f6a446bb1154b49bd2131799530312afd43dd578a2ffe419f00ac5d4",
+  "result": {
+    "mode": "malformed",
+    "envelope": null,
+    "error": {
+      "type": "JSONDecodeError",
+      "message": "Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+    },
+    "real_remote_run": false
+  },
+  "real_remote_run": false
+}

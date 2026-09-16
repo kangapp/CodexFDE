@@ -1,0 +1,65 @@
+{
+  "id": "hook-red",
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "quality_gate.py"
+  ],
+  "cwd": "D:\\work\\CodexFDE\\.course-authoring\\L07\\deep\\candidate-r2",
+  "input": "{\"hook_event_name\": \"Stop\", \"cwd\": \"D:\\\\work\\\\CodexFDE\\\\.course-authoring\\\\L07\\\\deep\\\\candidate-r2\", \"stop_hook_active\": false}",
+  "exit_code": 0,
+  "stdout": "{\"decision\": \"block\", \"reason\": \"阻断级 Eval 未通过。修复后重新验证：\\n[BLOCK] l07_draft_amount                       110 ms  AssertionError: expected=12000 actual=5000\\n[PASS ] l07_reject_no_residue                   96 ms  数量为零、第二行商品不存在均拒绝；订单头、明细、库存三表保持原样\\n[BLOCK] l07_amount_transfer                    107 ms  AssertionError: expected=11100 actual=4300\\n{\\\"total\\\": 3, \\\"passed\\\": 1, \\\"blocking_failed\\\": 2, \\\"observing_failed\\\": 0, \\\"decision\\\": \\\"block\\\"}\"}\n",
+  "stderr": "",
+  "real_codex_event": false,
+  "response": {
+    "decision": "block",
+    "reason": "阻断级 Eval 未通过。修复后重新验证：\n[BLOCK] l07_draft_amount                       110 ms  AssertionError: expected=12000 actual=5000\n[PASS ] l07_reject_no_residue                   96 ms  数量为零、第二行商品不存在均拒绝；订单头、明细、库存三表保持原样\n[BLOCK] l07_amount_transfer                    107 ms  AssertionError: expected=11100 actual=4300\n{\"total\": 3, \"passed\": 1, \"blocking_failed\": 2, \"observing_failed\": 0, \"decision\": \"block\"}"
+  },
+  "evidence_kind": "manual_event_real_handler_real_harness",
+  "harness_report": {
+    "schema_version": "1.0",
+    "suite": "blocking",
+    "requested_cases": [],
+    "generated_at": "2026-09-08T11:48:21.020938+00:00",
+    "summary": {
+      "total": 3,
+      "passed": 1,
+      "blocking_failed": 2,
+      "observing_failed": 0,
+      "decision": "block"
+    },
+    "results": [
+      {
+        "name": "l07_draft_amount",
+        "level": "blocking",
+        "passed": false,
+        "duration_ms": 110,
+        "evidence": "AssertionError: expected=12000 actual=5000",
+        "error": {
+          "type": "AssertionError",
+          "message": "expected=12000 actual=5000"
+        }
+      },
+      {
+        "name": "l07_reject_no_residue",
+        "level": "blocking",
+        "passed": true,
+        "duration_ms": 96,
+        "evidence": "数量为零、第二行商品不存在均拒绝；订单头、明细、库存三表保持原样",
+        "error": null
+      },
+      {
+        "name": "l07_amount_transfer",
+        "level": "blocking",
+        "passed": false,
+        "duration_ms": 107,
+        "evidence": "AssertionError: expected=11100 actual=4300",
+        "error": {
+          "type": "AssertionError",
+          "message": "expected=11100 actual=4300"
+        }
+      }
+    ]
+  }
+}

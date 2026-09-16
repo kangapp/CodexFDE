@@ -1,0 +1,4 @@
+interface:
+  display_name: "编写 AGENTS.md"
+  short_description: "从项目事实起草与改进仓库规则，检查真实入口、合法边界和交接条件"
+  default_prompt: "使用 $write-agents，根据当前仓库事实改进 AGENTS.md，保留已有有效约定，并说明依据和验证状态。"

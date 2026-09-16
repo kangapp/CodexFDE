@@ -1,0 +1,61 @@
+{
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\work\\CodexFDE\\docs\\courses\\L08\\examples\\ci_signal_lab.py",
+    "true-red"
+  ],
+  "cwd": "D:\\work\\CodexFDE",
+  "exit_code": 1,
+  "stdout": "{\n  \"mode\": \"true-red\",\n  \"evidence_kind\": \"local_harness_with_teaching_case\",\n  \"report\": {\n    \"schema_version\": \"1.0\",\n    \"suite\": \"blocking\",\n    \"requested_cases\": [\n      \"l08_teaching_signal\"\n    ],\n    \"generated_at\": \"2026-09-08T16:13:00.793563+00:00\",\n    \"summary\": {\n      \"total\": 1,\n      \"passed\": 0,\n      \"blocking_failed\": 1,\n      \"observing_failed\": 0,\n      \"decision\": \"block\"\n    },\n    \"results\": [\n      {\n        \"name\": \"l08_teaching_signal\",\n        \"level\": \"blocking\",\n        \"passed\": false,\n        \"duration_ms\": 0,\n        \"evidence\": \"AssertionError: L08 teaching control failure; not a product incident\",\n        \"error\": {\n          \"type\": \"AssertionError\",\n          \"message\": \"L08 teaching control failure; not a product incident\"\n        }\n      }\n    ]\n  },\n  \"envelope\": {\n    \"commit_sha\": \"SIMULATED-L08\",\n    \"run_id\": \"SIMULATED-true-red\",\n    \"workflow\": \"\",\n    \"runner_os\": \"\",\n    \"python\": \"3.11.15\",\n    \"suite\": \"blocking\",\n    \"report_sha256\": \"d977f1fb046dcd0c70d758600f6b39e2b56f60ed43e177fb965afa7aeec173db\",\n    \"report_decision\": \"block\"\n  },\n  \"harness_stdout\": \"[BLOCK] l08_teaching_signal                      0 ms  AssertionError: L08 teaching control failure; not a product incident\\n{\\\"total\\\": 1, \\\"passed\\\": 0, \\\"blocking_failed\\\": 1, \\\"observing_failed\\\": 0, \\\"decision\\\": \\\"block\\\"}\\n\",\n  \"harness_exit\": 1,\n  \"adapter_exit\": 1,\n  \"real_remote_run\": false\n}\n",
+  "stderr": "",
+  "source_sha256": "b1a06ecb41625efeba8ebaa525c7676f88edd8ebe423380753f2aa90d37c7574",
+  "result": {
+    "mode": "true-red",
+    "evidence_kind": "local_harness_with_teaching_case",
+    "report": {
+      "schema_version": "1.0",
+      "suite": "blocking",
+      "requested_cases": [
+        "l08_teaching_signal"
+      ],
+      "generated_at": "2026-09-08T16:13:00.793563+00:00",
+      "summary": {
+        "total": 1,
+        "passed": 0,
+        "blocking_failed": 1,
+        "observing_failed": 0,
+        "decision": "block"
+      },
+      "results": [
+        {
+          "name": "l08_teaching_signal",
+          "level": "blocking",
+          "passed": false,
+          "duration_ms": 0,
+          "evidence": "AssertionError: L08 teaching control failure; not a product incident",
+          "error": {
+            "type": "AssertionError",
+            "message": "L08 teaching control failure; not a product incident"
+          }
+        }
+      ]
+    },
+    "envelope": {
+      "commit_sha": "SIMULATED-L08",
+      "run_id": "SIMULATED-true-red",
+      "workflow": "",
+      "runner_os": "",
+      "python": "3.11.15",
+      "suite": "blocking",
+      "report_sha256": "d977f1fb046dcd0c70d758600f6b39e2b56f60ed43e177fb965afa7aeec173db",
+      "report_decision": "block"
+    },
+    "harness_stdout": "[BLOCK] l08_teaching_signal                      0 ms  AssertionError: L08 teaching control failure; not a product incident\n{\"total\": 1, \"passed\": 0, \"blocking_failed\": 1, \"observing_failed\": 0, \"decision\": \"block\"}\n",
+    "harness_exit": 1,
+    "adapter_exit": 1,
+    "real_remote_run": false
+  },
+  "real_remote_run": false
+}

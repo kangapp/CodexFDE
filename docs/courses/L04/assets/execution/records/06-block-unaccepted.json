@@ -1,0 +1,25 @@
+{
+  "key": "06-block-unaccepted",
+  "command": [
+    "D:\\work\\CodexFDE\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "workbench.cli",
+    "course-submit",
+    "--lesson",
+    "4",
+    "--execute-code",
+    "--bootstrap-task-id",
+    "TASK-D41D18C759",
+    "--runtime-dir",
+    "D:\\work\\CodexFDE\\.course-authoring\\L04\\execution-20260907\\runtime",
+    "--actor",
+    "codex-reference-check"
+  ],
+  "cwd": "D:\\work\\CodexFDE",
+  "exit_code": 2,
+  "stdout": "",
+  "stderr": "usage: cli.py [-h]\n              {workbench-init,workbench-project-add,workbench-task-create,workbench-evidence-add,workbench-status,demo,mock-data,verify-mock-data,serve,serve-workbench,harness-serve,harness-bootstrap,spec,feedback,course-contract,course-spec,course-status,course-prepare,course-eval,course-submit,course-baseline-audit,course-baseline-publish,course-candidate-export,course-release-index,course-candidate-promote,course-worktree-clean,init,backup,verify-backup,doctor,runtime-status,maintenance,task-create,task-submit,task-run,task-review,task-show,task-list}\n              ...\ncli.py: error: 工作台 Ticket A 尚未被具名接受\n",
+  "captured_at": "2026-09-07T22:34:32.767214+08:00"
+}
