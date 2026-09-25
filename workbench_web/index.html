@@ -116,7 +116,7 @@
 <button id="iw-confirm" type="button" class="primary">确认技术方案与验收负责人</button>
 <button id="iw-execute" type="button" class="primary" hidden>授权工作台执行本轮方案</button></section>
 </div><div id="iw-pane-result" hidden><p id="iw-result-empty" class="workspace-empty">还没有执行结果。授权执行后，实际改动、检查与验收记录会出现在这里。</p><section id="iw-result" hidden><h3>本轮成果</h3><p id="iw-result-summary"></p><a id="iw-patch" hidden>下载本轮补丁</a>
-<button id="iw-preview" type="button">打开候选成果</button><p id="iw-preview-status"></p><a id="iw-preview-link" target="_blank" rel="noopener" hidden>在独立窗口打开客户项目候选</a><iframe id="iw-preview-frame" title="本事项的 FlowERP 候选成果" hidden></iframe>
+<button id="iw-preview" type="button">打开候选成果</button><p id="iw-preview-status"></p><a id="iw-preview-link" target="_blank" rel="noopener" hidden>在独立窗口打开客户项目候选</a><iframe id="iw-preview-frame" title="本事项所属项目的候选成果" hidden></iframe>
 <details><summary>实际改动与检查记录</summary><pre id="iw-diff"></pre><pre id="iw-checks"></pre></details>
 <section id="iw-eval-harness" aria-label="Eval Harness 质量检查">
 <h3>Eval Harness · 候选质量检查</h3>
@@ -126,6 +126,38 @@
 <ul id="iw-eval-results"></ul>
 <details><summary>本次命令、报告与来源</summary><pre id="iw-eval-provenance"></pre></details>
 <details><summary>本事项复验历史</summary><ul id="iw-eval-history"></ul></details>
+</section>
+<section id="iw-repair-loop" aria-label="有界修复 Loop">
+<h3>Loop · 有停止条件的返工</h3>
+<p id="iw-loop-status" role="status"></p>
+<p class="hint">检查 → 判断继续或停止 → 有界修改 → 下一轮复验。检查次数与修改次数分开；末轮修改未经复验不能写成收敛。</p>
+<div class="loop-config-grid"><label>最多轮数<input id="iw-loop-rounds" type="number" min="1" max="3" value="3"></label><label>时间预算（秒）<input id="iw-loop-time" type="number" min="1" value="900"></label><label>Token 预算<input id="iw-loop-tokens" type="number" min="1" value="30000"></label></div>
+<label><input id="iw-loop-enabled" type="checkbox"> 对后续返工启用停止闸门</label>
+<button id="iw-loop-save" class="secondary" type="button">保存 Loop 边界</button>
+<details><summary>Loop History 与失败 handoff</summary><pre id="iw-loop-detail"></pre></details>
+</section>
+<section id="iw-ci-evidence" aria-label="CI 独立复验证据">
+<h3>CI · 独立复验与证据信封</h3>
+<p id="iw-ci-status" role="status"></p>
+<p class="hint">上传同一次 Run 的原始 Harness 报告与 Evidence Envelope。工作台核对候选、Run 身份、报告哈希以及失败是否如实影响 Job；通过仍需具名验收。</p>
+<label>Run 链接<input id="iw-ci-run-url" type="url" placeholder="https://github.com/.../actions/runs/..."></label>
+<label>实际 checkout SHA<input id="iw-ci-sha" maxlength="200"></label>
+<label>Job 结论<select id="iw-ci-conclusion"><option value="success">success（绿色）</option><option value="failure">failure（红色）</option></select></label>
+<label>Harness 原始报告<input id="iw-ci-report" type="file" accept="application/json,.json"></label>
+<label>Evidence Envelope<input id="iw-ci-envelope" type="file" accept="application/json,.json"></label>
+<button id="iw-ci-record" class="secondary" type="button">核验并保存本次 CI 证据</button>
+<details><summary>最近一次核验与历史</summary><pre id="iw-ci-detail"></pre></details>
+</section>
+<section id="iw-quality-hook" aria-label="Stop Hook 检查连接">
+<h3>Stop Hook · 结束前自动检查</h3>
+<p id="iw-hook-status" role="status"></p>
+<p class="hint">沿用本事项已确认的项目质量检查命令，在当前候选运行。准备文件不会安装或启用 Hook。</p>
+<button id="iw-hook-prepare" class="secondary" type="button">准备候选 Hook</button>
+<p id="iw-hook-next" class="hint"></p>
+<details><summary>待审文件、候选与命令</summary><pre id="iw-hook-files"></pre></details>
+<details><summary>审查配置与处理器内容</summary><pre id="iw-hook-source"></pre></details>
+<details><summary>最近调用记录</summary><ul id="iw-hook-runs"></ul></details>
+<p class="hint">信任状态须在候选目录的 Codex /hooks 中核对。收到 Stop 输入不等于已证实宿主自动触发；重入跳过也不等于检查通过。</p>
 </section>
 <label for="iw-note">验收依据</label><textarea id="iw-note" rows="2" placeholder="说明核对了什么，以及结果是否满足本期需求"></textarea>
 <button id="iw-accept" class="primary" type="button">接受本轮候选</button>
@@ -164,6 +196,7 @@
 <section id="candidate-preview" class="contract-card" hidden><h3>查看本次客户项目成果</h3><p class="hint">使用本任务的隔离代码和独立预览数据。请对照验收标准操作，再作出审核决定。</p><button id="prepare-preview" class="secondary" type="button">准备本次成果预览</button> <a id="preview-link" class="secondary" target="_blank" rel="noopener" hidden>打开本次候选成果 ↗</a><p id="preview-status" role="status"></p></section>
 <div id="task-actions" class="decision-panel" tabindex="-1"><div><h3 id="decision-title">你的下一步</h3><p id="delivery-failure" role="alert" hidden></p><p id="evidence-review" class="muted"></p><p id="evidence-review-note" class="hint"></p></div><div class="decision-controls"><button class="secondary" id="action-verify" hidden>再跑复验</button><label for="review-note">审核理由</label><textarea id="review-note" maxlength="500" rows="2" placeholder="哪些证据支持接受？还有什么需要补齐？"></textarea><div class="submit-row"><button class="primary" id="action-approve" hidden>批准完成</button><button class="secondary" id="action-reject" hidden>打回返工</button></div><p class="hint" id="action-status" role="status" aria-live="polite"></p></div></div>
 <div id="delivery-pipeline" class="pipeline" aria-label="交付流程"></div>
+<section id="workflow-graph" class="workflow-graph" aria-label="稳定工作流 Graph"><div class="section-top"><div><span class="eyebrow">WORKFLOW GRAPH</span><h3>节点、责任与恢复轨迹</h3></div><span id="graph-version" class="pill">读取中</span></div><p id="graph-summary" class="hint"></p><div id="graph-nodes" class="graph-nodes"></div><details><summary>查看已发生的 Graph 转移</summary><ol id="graph-events"></ol></details></section>
 <section class="collaboration-strip" aria-label="本次协作分工"><div class="section-top"><h3>本次协作</h3><span class="hint">点选查看对应证据</span></div><div class="collaboration-roles"><button data-evidence="task-actions"><b>你 · 范围与终审</b><span id="role-human"></span></button><button data-evidence="diff-card"><b>Codex · 受控实现</b><span id="role-codex"></span></button><button data-evidence="control-card"><b>工作台 · 控制面</b><span id="role-workbench"></span></button></div></section><div class="delivery-toolbar"><div class="delivery-tabs" aria-label="交付记录视图"><button type="button" data-delivery-panel="summary" aria-pressed="true" class="active">交付摘要</button><button type="button" data-delivery-panel="evidence" aria-pressed="false">核验证据</button></div><span id="digest-count" class="hint"></span></div><section id="delivery-digest" aria-label="交付摘要"></section><div id="delivery-evidence" hidden><div class="evidence-grid"><section id="spec-card" tabindex="-1"><h3>01 · 约定做什么</h3><p id="evidence-initiative" class="hint"></p><p id="evidence-spec-summary" class="spec-copy"></p><details><summary>关联的业务对象</summary><p id="evidence-business-refs" class="spec-copy"></p><p class="hint">提交者提供的对账线索，需回到 FlowERP 核对实际状态。</p></details><details><summary>查看完整任务约定</summary><p id="evidence-spec" class="spec-copy"></p></details><dl><div><dt>当前责任人</dt><dd id="evidence-owner"></dd></div></dl><details><summary>查看允许修改的文件</summary><p id="evidence-scope" class="spec-copy"></p></details></section><section id="diff-card" tabindex="-1"><h3>02 · 实际改了什么</h3><p id="execution-summary" class="eval-summary"></p><p id="evidence-diff" class="spec-copy"></p><p class="hint">把实际改动与约定范围对照，再判断交付是否完整。</p></section><section id="eval-card" tabindex="-1"><h3>03 · 检查结果如何</h3><p id="evidence-eval" class="eval-summary"></p><details><summary>查看逐项检查结果</summary><ul id="eval-cases"></ul></details><p class="hint">Eval 是自动检查。检查通过后，仍由你作出验收决定。</p></section><section id="control-card" tabindex="-1"><h3>04 · Harness 外壳有没有闸</h3><p id="control-thesis" class="hint"></p><div id="control-surface" class="control-surface"></div><p id="control-issues" class="hint"></p></section></div>
 <details id="event-history" class="event-panel"><summary id="event-count">展开任务事件</summary><p class="hint">UTC记录时间 · 按发生顺序排列 · 具名字段是责任记录，不等于身份认证。</p><ol id="task-events"></ol></details>
 </div></div></section></div>

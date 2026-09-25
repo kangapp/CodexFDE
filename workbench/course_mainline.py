@@ -11,6 +11,13 @@ from .spec import parse_spec
 
 
 COURSE_BUILD_THESIS = "用 Codex 搭建个人工作台；通过个人工作台组织人与 AI 协同开发 FlowERP"
+COURSE_WORKSPACE_BOUNDARY = (
+    "CodexFDE 是控制仓库，FlowERP 是独立客户项目。"
+    "L04+ 的 write_scope 是相对于本次隔离教学候选的路径上限，不是 CodexFDE 根目录权限。"
+    "flowerp/、web/ 的业务源码归属独立 FlowERP；workbench/、agent/ 归属工作台。"
+    "eval/、tests/ 须按具体文件和来源记录区分工程检查与客户业务检查。"
+    "当前课程候选仍组合两仓库源码，须记录来源与哈希；候选修改不自动写回任何源仓库。"
+)
 
 
 def _construction_stage(number: int) -> str:
@@ -69,6 +76,8 @@ class LessonContract:
         result["requirement_id"] = self.requirement_id
         result["course_build_thesis"] = COURSE_BUILD_THESIS
         result["construction_stage"] = _construction_stage(self.number)
+        result["workspace_boundary"] = COURSE_WORKSPACE_BOUNDARY
+        result["write_scope_base"] = "isolated_course_candidate" if self.number >= 4 else "learner_workbench"
         result.update(LESSON_STORY[self.number])
         return result
 
@@ -172,7 +181,7 @@ LESSONS: tuple[LessonContract, ...] = (
             refs=("REQUIREMENT:COURSE-L15",), scope=("workbench/", "flowerp/", "eval/", "tests/"),
             acceptance=("原始反馈先审核再进入记忆候选与执行合同。", "记忆来源、版本、状态、检索结果、采用快照和后续验证可追溯。", "撤回或跨项目记忆不进入默认上下文，反馈与检索结果均不能直接改写阻断裁判。"),
             evals=("delivery_evidence_and_review_controls", "raw_feedback_cannot_become_blocking"), dynamic_eval_required=True),
-    _lesson(16, "冷启动发布与工程答辩", "transfer", "冷启动、发布证据索引与迁移答辩", "现场交付此前未实现的小需求",
+    _lesson(16, "在新环境接手，并完成现场新需求", "transfer", "冷启动、发布证据索引与迁移答辩", "现场交付此前未实现的小需求",
             "现场抽取一个此前未实现的 FlowERP 小需求，使用工作台完成 Spec、受控执行、Eval、人审和发布证据。",
             refs=("REQUIREMENT:LIVE-DRAW",), scope=("flowerp/", "workbench/", "eval/", "web/", "tests/"),
             acceptance=("需求在答辩现场抽取且仓库基线中尚未实现。", "正常、失败和失败后不变状态均有新证据。", "发布索引能追溯需求、Diff、Eval、人审与剩余风险。"),
@@ -231,6 +240,7 @@ FDE 循环：{LESSON_STORY[number]['fde_loop']}。
 ## 约束
 
 - 允许写集：{scope}
+- 项目与路径归属：{COURSE_WORKSPACE_BOUNDARY}
 - 本讲复用 Eval：{evals}
 - 库存、订单、采购和任务状态必须遵守 `AGENTS.md` 的不可破坏规则。
 - 执行结果必须保存需求、Diff、命令、Eval 和人工决定之间的稳定引用。
