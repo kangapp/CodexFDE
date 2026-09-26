@@ -28,9 +28,10 @@ def project_source_paths(root, runtime):
 
 
 class CandidateProjectEval:
-    def __init__(self, workspace, runtime, task_id, command, label):
+    def __init__(self, workspace, runtime, task_id, command, label, *, timeout=1800):
         self.workspace, self.runtime = Path(workspace), Path(runtime)
         self.task_id, self.command, self.label = task_id, command, label
+        self.timeout = timeout
 
     def __call__(self, suite='blocking', write_report=True):
         from .execution_control import checkpoint
@@ -47,10 +48,13 @@ class CandidateProjectEval:
         from .execution import CodexExecutionRunner
         import time
         runner = CodexExecutionRunner(self.workspace, self.runtime)
-        result = runner._run_codex_streaming(command, '', 1800, lambda line: None, time.monotonic())
+        result = runner._run_codex_streaming(command, '', self.timeout, lambda line: None, time.monotonic())
         (folder / 'process.json').write_text(json.dumps({'command': command, 'cwd': str(self.workspace),
             'returncode': result.returncode, 'stdout': result.stdout, 'stderr': result.stderr}, ensure_ascii=False), encoding='utf-8')
         checkpoint()
+        if result.returncode in {124, 127, 130}:
+            reason = {124: '项目 Eval 超时', 127: '项目 Eval 命令无法启动', 130: '项目 Eval 已取消'}[result.returncode]
+            raise RuntimeError(reason + '，未完成验证；进程记录：' + str(folder / 'process.json'))
         report = json.loads(report_path.read_text(encoding='utf-8') if report_path.exists() else result.stdout)
         # Preserve the exact received report even when validation rejects it.
         (folder / 'raw-report.json').write_text(json.dumps(report, ensure_ascii=False), encoding='utf-8')

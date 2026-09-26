@@ -35,6 +35,20 @@ function renderIwAnswers(data, busy) {
 }
 function renderInitiativeWork(data) {
   renderEvalHarness(data);
+  const loop=data.repair_loop || {config:{},history:[]};
+  iw('loop-status').textContent=(loop.config.enabled ? '停止闸门已启用 · ' : '当前仅观察，停止闸门未启用 · ')+
+    loop.status+' · '+loop.reason+' · '+loop.rounds+'/'+(loop.config.max_rounds || 3)+' 轮 · Token '+loop.tokens_used+'/'+(loop.config.token_budget || 30000);
+  iw('loop-save').disabled=initiativeWorkPending || ['queued','executing','checking','integrating'].includes(data.stage);
+  if(document.activeElement!==iw('loop-rounds'))iw('loop-rounds').value=loop.config.max_rounds || 3;
+  if(document.activeElement!==iw('loop-time'))iw('loop-time').value=loop.config.time_budget_seconds || 900;
+  if(document.activeElement!==iw('loop-tokens'))iw('loop-tokens').value=loop.config.token_budget || 30000;
+  iw('loop-enabled').checked=!!loop.config.enabled;
+  iw('loop-detail').textContent=JSON.stringify({history:loop.history,remaining_failures:loop.remaining_failures,handoff:loop.handoff},null,2);
+  const ci=data.ci_evidence || {status:'missing',history:[]};
+  iw('ci-status').textContent=ci.status==='verified' ? '已核验真实 CI 证据；仍需人工验收。' : '尚未登记可回查的真实 CI 证据。';
+  iw('ci-record').disabled=initiativeWorkPending || !ci.can_record;
+  iw('ci-detail').textContent=JSON.stringify({latest:ci.latest || null,history:ci.history || []},null,2);
+  renderQualityHook(data);
   if(typeof renderLearning==='function')renderLearning(data);
   if(initiativeWork && initiativeWork.active_task_id!==data.active_task_id) {
     iw('preview-frame').hidden=true;iw('preview-frame').removeAttribute('src');iw('preview-link').hidden=true;iw('preview-status').textContent='';
@@ -55,7 +69,7 @@ function renderInitiativeWork(data) {
   iwList('source-files',(check?.files || []).map(f=>({added:'新纳入',removed:'不再纳入',modified:'内容修改'}[f.kind])+ '：'+f.path));
   iw('recheck').hidden=check?.status==='current';
   iw('recheck').disabled=busy || initiativeWorkPending || !data.enabled;
-  iw('project').textContent=data.project ? '项目：'+data.project.name+' · '+data.project.root_path : '项目：FlowERP';
+  iw('project').textContent=data.project ? '项目：'+data.project.name+' · '+data.project.root_path : '项目：尚未关联';
   iw('cancel').hidden=!['researching','queued','executing','checking'].includes(data.stage);
   iw('cancel').disabled=initiativeWorkPending;
   iw('delivery').hidden=!complete;
@@ -174,6 +188,18 @@ async function initiativeWorkAction(action, extra={}) {
 }
 function initInitiativeWork() {
   iw('eval-run').onclick=()=>initiativeWorkAction('eval');
+  iw('loop-save').onclick=()=>initiativeWorkAction('loop-config',{fields:{enabled:iw('loop-enabled').checked,
+    max_rounds:Number(iw('loop-rounds').value),time_budget_seconds:Number(iw('loop-time').value),token_budget:Number(iw('loop-tokens').value)}});
+  iw('ci-record').onclick=async()=>{
+    const report=iw('ci-report').files[0], envelope=iw('ci-envelope').files[0];
+    if(!report || !envelope){iw('error').textContent='请选择同一次 Run 的 Harness 报告和 Evidence Envelope。';return;}
+    try {
+      const envelopeData=JSON.parse(await envelope.text());
+      await initiativeWorkAction('ci-evidence',{fields:{report_text:await report.text(),envelope:envelopeData,
+        run_url:iw('ci-run-url').value.trim(),candidate_sha:iw('ci-sha').value.trim(),job_conclusion:iw('ci-conclusion').value}});
+    } catch(error) { iw('error').textContent='CI 证据读取失败：'+error.message; }
+  };
+  iw('hook-prepare').onclick=()=>initiativeWorkAction('prepare-hook');
   if(typeof initLearning==='function')initLearning();
   document.getElementById('v0-submit').onclick=async()=>{
     const value=id=>document.getElementById(id).value;
@@ -212,6 +238,28 @@ function initInitiativeWork() {
       iw('preview-status').textContent='候选已就绪，请从下方链接在独立窗口验收。'+result.notice;
     }catch(error){iw('preview-status').textContent=error.message;}finally{iw('preview').disabled=false;}
   };
+}
+
+function renderQualityHook(data) {
+  const hook=data.quality_hook || {}, project=data.plan?.project || {};
+  const labels={not_prepared:'尚未准备',prepared:'待审文件已准备，尚未安装',installed:'安装文件匹配，信任与真实触发待核对',
+    different:'已有安装文件与本次待审版本不一致',stale:'绑定的候选或任务已变化，请重新准备',unavailable:'文件无法核对'};
+  iw('hook-status').textContent=(labels[hook.status] || '状态未知')+(hook.error ? '：'+hook.error : '');
+  iw('hook-prepare').disabled=initiativeWorkPending || !hook.can_prepare;
+  iw('hook-next').textContent=hook.path ? '先审查下方文件。将 hooks.json 的 Stop 规则合并到候选 .codex/hooks.json，将处理器安装到 .codex/hooks/quality_gate.py；已有文件先备份，再到 /hooks 审查与信任。' : '取得本轮项目候选后，可在这里准备 Hook。';
+  iw('hook-files').textContent=JSON.stringify({candidate:data.workspace || null,task:data.active_task_id || null,
+    command:project.eval_command || [],package:hook.path || null,prepared_by:hook.actor || null,
+    handler_sha256:hook.handler_sha256 || null,config_sha256:hook.config_sha256 || null},null,2);
+  iw('hook-source').textContent=Object.entries(hook.review_files || {}).map(([name,text])=>name+'\n'+text).join('\n\n');
+  iw('hook-runs').replaceChildren();
+  (hook.runs || []).forEach(run=>{
+    const li=document.createElement('li');
+    li.textContent=new Date(run.at*1000).toLocaleString()+' · '+
+      ({pass:'所选检查通过',block:'阻断失败',skipped:'重入跳过，未验证',unverified:'未完成验证'}[run.outcome] || run.outcome)+
+      (run.freshness ? ' · '+({current:'报告与候选一致',stale:'报告已过期',unavailable:'报告无法核对',unverified:'来源未验证'}[run.freshness] || run.freshness) : '')+
+      (run.error ? ' · '+run.error : '')+' · 宿主自动触发待核对';
+    iw('hook-runs').append(li);
+  });
 }
 
 function renderEvalHarness(data) {
