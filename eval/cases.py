@@ -481,3 +481,18 @@ def web_api_and_persistence_projection_agree():
     with tempfile.TemporaryDirectory(prefix='workbench-api-eval-') as temporary:
         check_required_workbench(Path(temporary))
     return '工作台任务受理、幂等与持久化一致；全绿停在人审；不创建 ERP 数据库'
+
+
+def l08_personal_atomic_success():
+    from workbench.external_project import evaluate_case
+    return evaluate_case('l08_personal_atomic_success')
+
+
+def l08_personal_atomic_shortage():
+    from workbench.external_project import evaluate_case
+    return evaluate_case('l08_personal_atomic_shortage')
+
+
+def l08_personal_atomic_write_error():
+    from workbench.external_project import evaluate_case
+    return evaluate_case('l08_personal_atomic_write_error')

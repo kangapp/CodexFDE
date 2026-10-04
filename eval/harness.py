@@ -23,6 +23,10 @@ class EvalResult:
     error: dict[str, str] | None = None
 
 
+PROJECT_CASES = PROJECT_CASES | frozenset({
+    'l08_personal_atomic_success', 'l08_personal_atomic_shortage', 'l08_personal_atomic_write_error'})
+
+
 EVALS: list[tuple[str, str, Callable[[], str]]] = [
     ("spec_contract_rejects_ambiguity", "blocking", cases.spec_contract_rejects_ambiguity),
     ("isolated_report_contract_is_honest", "blocking", cases.isolated_report_contract_is_honest),
@@ -58,6 +62,12 @@ EVALS: list[tuple[str, str, Callable[[], str]]] = [
     ("course_assets_present", "observing", cases.course_assets_present),
     ("ecommerce_lineage_is_declared", "observing", cases.ecommerce_lineage_is_declared),
 ]
+
+EVALS.extend([
+    ('l08_personal_atomic_success', 'blocking', cases.l08_personal_atomic_success),
+    ('l08_personal_atomic_shortage', 'blocking', cases.l08_personal_atomic_shortage),
+    ('l08_personal_atomic_write_error', 'blocking', cases.l08_personal_atomic_write_error),
+])
 
 
 def run_suite(suite: str = "all", write_report: bool = True,
