@@ -1,6 +1,5 @@
-# L08 A teaching demonstration. Intentionally masks check failures in this isolated branch.
-# B must restore propagation; this file is never a production acceptance signal.
-name: L08 A Candidate Eval
+# L08 B preserves failures and evidence; this file is not a production acceptance signal.
+name: L08 Candidate Eval
 on:
   pull_request:
 permissions:
@@ -73,9 +72,8 @@ jobs:
           PYTHON
         env:
           L08_PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-      - name: Unit tests (A preserves failure, deliberately continues)
+      - name: Unit tests
         if: ${{ !cancelled() && steps.sources.outcome == 'success' }}
-        continue-on-error: true
         shell: bash
         run: |
           set +e
@@ -84,9 +82,8 @@ jobs:
           cat "$CI_REPORT_DIR/unit-tests.log"
           printf '%s\n' "$result" > "$CI_REPORT_DIR/unit-tests.exit"
           exit "$result"
-      - name: Local course experiments (A preserves failure, deliberately continues)
+      - name: Local course experiments
         if: ${{ !cancelled() && steps.sources.outcome == 'success' }}
-        continue-on-error: true
         shell: bash
         run: |
           set +e
@@ -95,9 +92,8 @@ jobs:
           cat "$CI_REPORT_DIR/course-experiments.log"
           printf '%s\n' "$result" > "$CI_REPORT_DIR/course-experiments.exit"
           exit "$result"
-      - name: Browser state tests (A preserves failure, deliberately continues)
+      - name: Browser state tests
         if: ${{ !cancelled() && steps.sources.outcome == 'success' }}
-        continue-on-error: true
         shell: bash
         run: |
           set +e
@@ -106,7 +102,7 @@ jobs:
           cat "$CI_REPORT_DIR/browser-tests.log"
           printf '%s\n' "$result" > "$CI_REPORT_DIR/browser-tests.exit"
           exit "$result"
-      - name: Frozen workbench and business gates (A intentionally masks failures)
+      - name: Frozen workbench and business gates
         if: ${{ !cancelled() && steps.sources.outcome == 'success' }}
         shell: bash
         run: |
@@ -116,8 +112,12 @@ jobs:
           .venv/bin/python -B -X utf8 -m eval.harness --suite blocking --case inventory_export_is_stable --case stock_never_negative --case receiving_is_idempotent --case cancellation_releases_reservation --case illegal_transition_is_blocked --case purchase_requires_approval --case purchase_request_preserves_reason --case order_total_matches_lines --case ecommerce_channel_order_is_idempotent_and_guarded --case channel_callback_lease_is_exclusive_and_bounded --case production_schema_invariants --case multi_location_transfer_conserves_stock --case stale_stock_count_is_blocked --case sales_credit_and_atomic_reservation --case backup_is_restorable --case purchase_invoice_three_way_match --case payable_aging_tracks_open_supplier_exposure --case double_entry_fifo_and_subledger_reconciliation --case bank_statement_control_and_reconciliation --case l08_personal_atomic_success --case l08_personal_atomic_shortage --case l08_personal_atomic_write_error --report-path "$CI_REPORT_DIR/harness-blocking.json" > "$CI_REPORT_DIR/business-gate.log" 2>&1
           business_result=$?
           cat "$CI_REPORT_DIR/workbench-gate.log" "$CI_REPORT_DIR/business-gate.log"
-          printf '{"workbench_exit":%s,"business_exit":%s,"outer_exit":0,"stage":"A-teaching-masked"}\n' "$workbench_result" "$business_result" > "$CI_REPORT_DIR/gate-exits.json"
-          exit 0
+          outer_result=0
+          if [[ "$workbench_result" -ne 0 || "$business_result" -ne 0 ]]; then
+            outer_result=1
+          fi
+          printf '{"workbench_exit":%s,"business_exit":%s,"outer_exit":%s,"stage":"B-trustworthy-red"}\n' "$workbench_result" "$business_result" "$outer_result" > "$CI_REPORT_DIR/gate-exits.json"
+          exit "$outer_result"
       - name: Bind this attempt's reports
         if: ${{ !cancelled() && steps.sources.outcome == 'success' }}
         shell: bash

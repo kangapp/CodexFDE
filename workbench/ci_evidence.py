@@ -19,8 +19,8 @@ def build_envelope(report_path: str | Path, *, env: dict[str, str] | None = None
     environ = env if env is not None else os.environ
     sha = str(environ.get("GITHUB_SHA") or "").strip()
     run_id = str(environ.get("GITHUB_RUN_ID") or "").strip()
-    sha = sha or "unsigned"
-    run_id = run_id or "local"
+    if not sha or not run_id:
+        raise SystemExit("Evidence Envelope 缺少 GITHUB_SHA 或 GITHUB_RUN_ID")
     summary = report.get("summary") if isinstance(report, dict) else {}
     return {
         "commit_sha": sha,
