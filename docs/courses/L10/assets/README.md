@@ -6,9 +6,9 @@
 
 ## 三条代码候选轨迹
 
-- [修复并收敛](latest/candidate-repair/index.json)：循环内两次检查、一次预设补丁，四项原检查最后通过。
-- [不改动而停止](latest/candidate-no-change/index.json)：两次检查、一次不改文件动作，相同失败与相同服务内容，停止后审计仍失败。
-- [末轮修复后停止](latest/candidate-last-repair/index.json)：一次检查、一次补丁；Loop 带旧失败返回达到上限，之后循环外审计才通过。
+- 修复并收敛（历史生成记录未随源码打包：`latest/candidate-repair/index.json`）：循环内两次检查、一次预设补丁，四项原检查最后通过。
+- 不改动而停止（历史生成记录未随源码打包：`latest/candidate-no-change/index.json`）：两次检查、一次不改文件动作，相同失败与相同服务内容，停止后审计仍失败。
+- 末轮修复后停止（历史生成记录未随源码打包：`latest/candidate-last-repair/index.json`）：一次检查、一次补丁；Loop 带旧失败返回达到上限，之后循环外审计才通过。
 
 每个目录保留逐轮完整报告、真实子进程输出、可取得的前后状态、任务、Diff、Loop 结果与循环外审计。`loop-converged.png`、`loop-stopped.png`、`loop-last-repair.png` 是这些记录的排版截图，HTML 与 PNG 同存；不是原生工作台界面。
 
