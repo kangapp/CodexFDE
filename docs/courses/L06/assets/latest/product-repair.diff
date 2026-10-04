@@ -1,0 +1,12 @@
+diff --git a/flowerp/service.py b/flowerp/service.py
+index 99753c2..9476231 100644
+--- a/flowerp/service.py
++++ b/flowerp/service.py
+@@ -107,7 +107,7 @@ class ERPService:
+         lines = ["sku,name,site,location,lot_id,on_hand,reserved,available"]
+         for row in rows:
+             lines.append(
+-                f"{row['sku']},{row['name']},MAIN,STOCK,,{row['on_hand']},{row['reserved']},{row['available']}"
++                f"{row['sku']},{row['name']},MAIN,STOCK,,{row['on_hand']},{row['reserved']},{row['on_hand']}"
+             )
+         return "\n".join(lines)

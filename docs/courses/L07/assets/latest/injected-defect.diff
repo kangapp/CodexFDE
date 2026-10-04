@@ -1,0 +1,11 @@
+--- before/flowerp/service.py
++++ injected/flowerp/service.py
+@@ -185,7 +185,7 @@
+         if len({line.sku.upper() for line in prepared}) != len(prepared):
+             raise ValueError("同一订单不能出现重复 SKU")
+         oid = order_id or f"SO-{uuid.uuid4().hex[:8].upper()}"
+-        total = sum(line.line_total_cents for line in prepared)
++        total = sum(line.unit_price_cents for line in prepared)
+         with self.store.connect() as conn:
+             if customer_id and not conn.execute(
+                 "SELECT 1 FROM customers WHERE id=?", (customer_id,)
