@@ -328,7 +328,7 @@ class WorkbenchBackupTests(unittest.TestCase):
             original_tables = db.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()
         commands = [
             ['course-prepare', '--runtime-dir', str(self.runtime), '--lesson', '4', '--source', 'working-tree'],
-            ['workbench-init', '--runtime-dir', str(self.runtime), '--owner', 'tester'],
+            ['workbench-init', '--runtime-dir', str(self.runtime), '--name', 'baseline-test', '--owner', 'tester'],
             ['course-spec', '--lesson', '4', '--output', str(self.runtime / 'course' / 'blocked.md')],
         ]
         with MaintenanceGate(self.runtime).exclusive():

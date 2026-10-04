@@ -1,81 +1,138 @@
-name: Workbench Eval Gate
-
+# L08 B preserves failures and evidence; this file is not a production acceptance signal.
+name: L08 Candidate Eval
 on:
   pull_request:
-  push:
-    branches: [main]
-
 permissions:
   contents: read
-
 jobs:
   blocking-evals:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     env:
-      FLOWERP_PROJECT_ROOT: ${{ github.workspace }}/.runtime/flowerp-project
+      CI_REPORT_DIR: _ci_reports/${{ github.run_id }}-${{ github.run_attempt }}
+      FLOWERP_PROJECT_ROOT: ${{ github.workspace }}/_projects/flowERP
+      L08_PRODUCT_REPOSITORY: ${{ vars.L08_FLOWERP_REPOSITORY }}
+      L08_PRODUCT_SHA: ${{ vars.L08_FLOWERP_SHA }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false
+      - name: Require a fixed independent product source
+        shell: bash
+        run: |
+          [[ "$L08_PRODUCT_REPOSITORY" =~ ^[^/[:space:]]+/[^/[:space:]]+$ ]]
+          [[ "$L08_PRODUCT_SHA" =~ ^[0-9a-fA-F]{40}$ ]]
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.L08_FLOWERP_REPOSITORY }}
+          ref: ${{ vars.L08_FLOWERP_SHA }}
+          path: _projects/flowERP
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-      - name: Install workbench
+          python-version: '3.11.9'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prepare both project environments
+        id: environment
+        shell: bash
         run: |
           python -m venv .venv
           .venv/bin/python -m pip install -e .
-          echo "$GITHUB_WORKSPACE/.venv/bin" >> "$GITHUB_PATH"
-
-      - name: Check workbench installation
-        run: python -X utf8 -m workbench.cli environment-check
-
-      # Course integration tests read customer source. Pin it so a product update
-      # cannot silently change this repository's regression baseline.
-      - name: Checkout independent FlowERP test baseline
-        uses: actions/checkout@v4
-        with:
-          repository: congde/flowERP
-          ref: e0088d3a11ae68b7e23c2c6986167b87768d909e
-          path: .runtime/flowerp-project
-          persist-credentials: false
-      - name: Install and check independent customer environment
-        run: |
           python -m venv "$FLOWERP_PROJECT_ROOT/.venv"
           "$FLOWERP_PROJECT_ROOT/.venv/bin/python" -m pip install -e "$FLOWERP_PROJECT_ROOT"
-          python -X utf8 -m workbench.cli environment-check --product
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
+          echo "$GITHUB_WORKSPACE/.venv/bin" >> "$GITHUB_PATH"
+          .venv/bin/python -X utf8 -m workbench.cli environment-check --product
+          actual_product_sha="$(git -C "$FLOWERP_PROJECT_ROOT" rev-parse HEAD)"
+          [[ "${actual_product_sha,,}" == "${L08_PRODUCT_SHA,,}" ]]
+      - name: Record both versions and loaded check sources
+        id: sources
+        shell: bash
+        run: |
+          mkdir -p "$CI_REPORT_DIR"
+          .venv/bin/python - <<'PYTHON'
+          import hashlib, json, os, subprocess, sys
+          from pathlib import Path
+          import eval.harness, eval.cases, workbench.ci_evidence
+          course, product = Path.cwd().resolve(), Path(os.environ['FLOWERP_PROJECT_ROOT']).resolve()
+          probe = "import sys,json,flowerp.sales,flowerp.service,eval.cases,eval.l08_atomic_checks; print(json.dumps({'python':sys.executable,'version':sys.version,'modules':{k:v.__file__ for k,v in list(sys.modules.items()) if k in ['flowerp.sales','flowerp.service','eval.cases','eval.l08_atomic_checks']}}))"
+          product_environment = json.loads(subprocess.check_output([str(product/'.venv/bin/python'), '-c', probe], cwd=product, text=True))
+          assert all(Path(value).resolve().is_relative_to(product) for value in product_environment['modules'].values())
+          course_modules = {'eval.harness':eval.harness.__file__, 'eval.cases':eval.cases.__file__, 'workbench.ci_evidence':workbench.ci_evidence.__file__}
+          assert all(Path(value).resolve().is_relative_to(course) for value in course_modules.values())
+          def hashes(root, names):
+              return {name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in names}
+          record = {'schema':'l08.dual-source/v1', 'github_sha':os.environ['GITHUB_SHA'], 'run_id':os.environ['GITHUB_RUN_ID'], 'run_attempt':os.environ['GITHUB_RUN_ATTEMPT'], 'event':os.environ['GITHUB_EVENT_NAME'], 'pr_head_sha':os.environ.get('L08_PR_HEAD_SHA'), 'course_checkout_sha':subprocess.check_output(['git','rev-parse','HEAD'], text=True).strip(), 'product_repository':os.environ['L08_PRODUCT_REPOSITORY'], 'product_checkout_sha':subprocess.check_output(['git','rev-parse','HEAD'],cwd=product,text=True).strip(), 'course_python':sys.executable, 'course_python_version':sys.version, 'course_modules':course_modules, 'product_environment':product_environment, 'course_check_sha256':hashes(course,['eval/harness.py','eval/cases.py']), 'product_check_sha256':hashes(product,['eval/cases.py','eval/l08_atomic_checks.py','eval/harness.py']), 'business_sha256':hashes(product,sorted(str(path.relative_to(product)) for path in (product/'flowerp').glob('*.py'))), 'workflow_sha256':hashes(course,['.github/workflows/eval.yml']), 'spec_sha256':hashes(course,['CI_GATE_SPEC.md'])}
+          assert record['product_checkout_sha'].lower()==os.environ['L08_PRODUCT_SHA'].lower()
+          output=Path(os.environ['CI_REPORT_DIR'])/'source-versions.json'
+          output.write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n')
+          print(json.dumps(record,ensure_ascii=False))
+          PYTHON
+        env:
+          L08_PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
       - name: Unit tests
-        run: python -X utf8 -m unittest discover -s tests -v
+        if: ${{ !cancelled() && steps.sources.outcome == 'success' }}
+        shell: bash
+        run: |
+          set +e
+          .venv/bin/python -B -X utf8 -m unittest discover -s tests -v > "$CI_REPORT_DIR/unit-tests.log" 2>&1
+          result=$?
+          cat "$CI_REPORT_DIR/unit-tests.log"
+          printf '%s\n' "$result" > "$CI_REPORT_DIR/unit-tests.exit"
+          exit "$result"
       - name: Local course experiments
-        if: ${{ !cancelled() }}
-        run: python -B -X utf8 scripts/audit_course_experiments.py --output-dir .runtime/course-experiments-ci
-      - name: Upload course experiment process evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: course-experiment-process-evidence
-          path: .runtime/course-experiments-ci/*.json
-          if-no-files-found: error
-          include-hidden-files: true
+        if: ${{ !cancelled() && steps.sources.outcome == 'success' }}
+        shell: bash
+        run: |
+          set +e
+          .venv/bin/python -B -X utf8 scripts/audit_course_experiments.py --output-dir "$CI_REPORT_DIR/course-experiments" > "$CI_REPORT_DIR/course-experiments.log" 2>&1
+          result=$?
+          cat "$CI_REPORT_DIR/course-experiments.log"
+          printf '%s\n' "$result" > "$CI_REPORT_DIR/course-experiments.exit"
+          exit "$result"
       - name: Browser state tests
-        if: ${{ !cancelled() }}
-        run: node --test tests/*.test.cjs
-      - name: Unified blocking gate
-        if: ${{ !cancelled() }}
-        run: python -X utf8 -m eval.harness --suite blocking
-      - name: Bind Evidence Envelope to this run
-        if: always()
-        run: python -X utf8 -m workbench.ci_evidence --report .runtime/reports/harness-blocking.json --output .runtime/reports/ci-evidence.json
-      - name: Upload machine-readable evidence
+        if: ${{ !cancelled() && steps.sources.outcome == 'success' }}
+        shell: bash
+        run: |
+          set +e
+          node --test tests/*.test.cjs > "$CI_REPORT_DIR/browser-tests.log" 2>&1
+          result=$?
+          cat "$CI_REPORT_DIR/browser-tests.log"
+          printf '%s\n' "$result" > "$CI_REPORT_DIR/browser-tests.exit"
+          exit "$result"
+      - name: Frozen workbench and business gates
+        if: ${{ !cancelled() && steps.sources.outcome == 'success' }}
+        shell: bash
+        run: |
+          set +e
+          .venv/bin/python -B -X utf8 -m eval.harness --suite blocking --report-path "$CI_REPORT_DIR/workbench-blocking.json" > "$CI_REPORT_DIR/workbench-gate.log" 2>&1
+          workbench_result=$?
+          .venv/bin/python -B -X utf8 -m eval.harness --suite blocking --case inventory_export_is_stable --case stock_never_negative --case receiving_is_idempotent --case cancellation_releases_reservation --case illegal_transition_is_blocked --case purchase_requires_approval --case purchase_request_preserves_reason --case order_total_matches_lines --case ecommerce_channel_order_is_idempotent_and_guarded --case channel_callback_lease_is_exclusive_and_bounded --case production_schema_invariants --case multi_location_transfer_conserves_stock --case stale_stock_count_is_blocked --case sales_credit_and_atomic_reservation --case backup_is_restorable --case purchase_invoice_three_way_match --case payable_aging_tracks_open_supplier_exposure --case double_entry_fifo_and_subledger_reconciliation --case bank_statement_control_and_reconciliation --case l08_personal_atomic_success --case l08_personal_atomic_shortage --case l08_personal_atomic_write_error --report-path "$CI_REPORT_DIR/harness-blocking.json" > "$CI_REPORT_DIR/business-gate.log" 2>&1
+          business_result=$?
+          cat "$CI_REPORT_DIR/workbench-gate.log" "$CI_REPORT_DIR/business-gate.log"
+          outer_result=0
+          if [[ "$workbench_result" -ne 0 || "$business_result" -ne 0 ]]; then
+            outer_result=1
+          fi
+          printf '{"workbench_exit":%s,"business_exit":%s,"outer_exit":%s,"stage":"B-trustworthy-red"}\n' "$workbench_result" "$business_result" "$outer_result" > "$CI_REPORT_DIR/gate-exits.json"
+          exit "$outer_result"
+      - name: Bind this attempt's reports
+        if: ${{ !cancelled() && steps.sources.outcome == 'success' }}
+        shell: bash
+        run: |
+          test -s "$CI_REPORT_DIR/workbench-blocking.json"
+          test -s "$CI_REPORT_DIR/harness-blocking.json"
+          .venv/bin/python -X utf8 -m workbench.ci_evidence --report "$CI_REPORT_DIR/workbench-blocking.json" --output "$CI_REPORT_DIR/workbench-ci-evidence.json"
+          .venv/bin/python -X utf8 -m workbench.ci_evidence --report "$CI_REPORT_DIR/harness-blocking.json" --output "$CI_REPORT_DIR/ci-evidence.json"
+          if [[ -d "$FLOWERP_PROJECT_ROOT/.runtime/l08-observations" ]]; then
+            cp -R "$FLOWERP_PROJECT_ROOT/.runtime/l08-observations" "$CI_REPORT_DIR/four-table-observations"
+          fi
+      - name: Upload this attempt's evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: flowerp-harness-report
-          path: |
-            .runtime/reports/harness-blocking.json
-            .runtime/reports/ci-evidence.json
+          name: l08-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.CI_REPORT_DIR }}/
           if-no-files-found: error
-          include-hidden-files: true

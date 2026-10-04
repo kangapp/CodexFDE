@@ -22,7 +22,7 @@ class SessionEnvironmentTests(unittest.TestCase):
             raise unittest.SkipTest('A native course shell and Git are required')
         cls.reference_temp = tempfile.TemporaryDirectory(prefix='l05-reference-')
         cls.reference = Path(cls.reference_temp.name) / '参考 environment'
-        venv.create(cls.reference, with_pip=False)
+        venv.create(cls.reference, with_pip=False, symlinks=not cls.windows)
         cls.python = cls.reference / ('Scripts/python.exe' if cls.windows else 'bin/python')
 
     @classmethod
@@ -113,7 +113,7 @@ class SessionEnvironmentTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         saved = Path(self.pointer.read_text('utf-8-sig').strip())
         before = saved.read_bytes()
-        venv.create(self.control / '.venv', with_pip=False)
+        venv.create(self.control / '.venv', with_pip=False, symlinks=not self.windows)
         result, resumed = self.run_helper(latest=True, activated=False)
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(resumed, session)

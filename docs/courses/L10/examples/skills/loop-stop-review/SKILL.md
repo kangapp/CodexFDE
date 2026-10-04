@@ -17,4 +17,4 @@ description: 审查修复 Loop 的实际轨迹、停止原因、末轮复验和�
 
 需要验证审查行为时使用[四个反例](references/review-cases.md)，保留实际响应与本人修订。
 
-对配套[候选轨迹](../../../assets/latest/candidate-last-repair/index.json)，把循环外审计单独计数。`use_codex=True` 不能独立证明调用了 Codex，应核对注入的执行器及子进程命令；协议占位用量不是实际 Token。根据原报告和 Diff 判断产品状态，不因 Loop 状态名称而重写发生顺序。
+对配套候选轨迹（历史生成记录未随源码打包：`../../../assets/latest/candidate-last-repair/index.json`），把循环外审计单独计数。`use_codex=True` 不能独立证明调用了 Codex，应核对注入的执行器及子进程命令；协议占位用量不是实际 Token。根据原报告和 Diff 判断产品状态，不因 Loop 状态名称而重写发生顺序。
